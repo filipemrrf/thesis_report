@@ -19,7 +19,7 @@
 \contentsline {section}{\numberline {3.1}Grid Setup}{13}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Numerical Method}{14}{section.3.2}%
 \contentsline {section}{\numberline {3.3}Patching Boundary Conditions}{15}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Adaptive Mesh Refinement}{15}{section.3.4}%
+\contentsline {section}{\numberline {3.4}Adaptive Mesh Refinement}{16}{section.3.4}%
 \contentsline {chapter}{\numberline {4}Results}{17}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Wave Equation in Hyperboloidal Slices}{17}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Wave Equation in Hyperboloidal Layers}{17}{section.4.2}%

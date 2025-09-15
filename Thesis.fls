@@ -437,6 +437,10 @@ INPUT ./Figures/Cubed_Ball.png
 INPUT ./Figures/Cubed_Ball.png
 INPUT ./Figures/Cubed_Ball.png
 INPUT ./Figures/Cubed_Ball.png
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/helvetic/phvr7t.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt8.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/helvetic/phvr7t.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt8.tfm
 INPUT ./Thesis_Results.tex
 INPUT ./Thesis_Results.tex
 INPUT ./Thesis_Results.tex

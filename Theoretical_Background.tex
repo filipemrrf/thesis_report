@@ -304,6 +304,7 @@ Using the previous definitions, we can write the wave equation as a set of first
         \partial_t \tilde{\Pi} = - \tilde{\alpha} \tilde{a}^i \tilde{\phi}_i - \tilde{\alpha} \tilde{\gamma}^{ij} \tilde{D}_j \tilde{\phi}_i + \tilde{\alpha} \tilde{K} \tilde{\Pi} + \beta^i \tilde{D}_i \tilde{\Pi} \\
         \hspace{3.5em} - \tilde{\alpha} \Omega^{-1} \Big( \tilde{g}^{ab} \tilde{\nabla}_a \tilde{\nabla}_b \Omega - 2 \Omega^{-1} \tilde{g}^{ab} \tilde{\nabla}_a \Omega \tilde{\nabla}_b \Omega \Big) \tilde{\psi} + \tilde{\alpha} \Omega^{-3} S
     \end{cases}\,.
+    \label{eq:wave_equation_3+1}
 \end{align}
 
 It is also necessary to calculate the characteristic variables of our system and their respective speeds. To do so, we start by calculating the principal symbol of our system and its eigenvalues, obtaining advection equations for the characteristic variables
@@ -320,7 +321,8 @@ where $\tilde{\phi}_s = \tilde{\phi}_i s^i$~(it is important to note that this d
 \begin{align}
     \begin{cases}
         u_0 = \tilde{\psi} \\
-        u_\pm = \tilde{\Pi} \pm \tilde{\phi}_s
+        u_\pm = \tilde{\Pi} \pm \tilde{\phi}_s \\
+        (u_2)_i = (\delta_i^j - s_i s^j) \tilde{\phi}_j
     \end{cases}\,,
 \end{align}
 %
@@ -329,7 +331,8 @@ with the associated characteristic speeds being
 \begin{align}
     \begin{cases}
         v_0 = 0 \\
-        v_\pm = -\beta^s \pm \tilde{\alpha}
+        v_\pm = -\beta^s \pm \tilde{\alpha} \\
+        v_2 = -\beta^s
     \end{cases}\,.
 \end{align}
 
@@ -342,6 +345,7 @@ For reasons that will be explained in more detail in section \ref{}, it may be u
         \partial_t \tilde{\Pi} = - \tilde{\alpha} \tilde{a}^i \tilde{\phi}_i - \tilde{\alpha} \tilde{\gamma}^{ij} \tilde{D}_j \tilde{\phi}_i + \tilde{\alpha} \tilde{K} \tilde{\Pi} + \beta^i \tilde{D}_i \tilde{\Pi} \\
         \hspace{3.5em} - \tilde{\alpha} \Omega^{-1} \Big( \tilde{g}^{ab} \tilde{\nabla}_a \tilde{\nabla}_b \Omega - 2 \Omega^{-1} \tilde{g}^{ab} \tilde{\nabla}_a \Omega \tilde{\nabla}_b \Omega \Big) \tilde{\psi} + \tilde{\alpha} \Omega^{-3} S + \gamma_3 \beta^i (\tilde{D}_i \tilde{\psi} - \tilde{\phi}_i)
     \end{cases}\,,
+    \label{eq:wave_equation_constraint_violation}
 \end{align}
 %
 where $\gamma_1$~, $\gamma_2$~, and $\gamma_3$~are free parameters which quantify the constraint violation we allow in our system. This addition will also change the characteristic variables and their respective speeds. Choosing $\gamma_3 = \gamma_1 \gamma_2$~for convenience, we obtain the characteristic variables as
@@ -349,7 +353,8 @@ where $\gamma_1$~, $\gamma_2$~, and $\gamma_3$~are free parameters which quantif
 \begin{align}
     \begin{cases}
         u_0 = \tilde{\psi} \\
-        u_\pm = \tilde{\Pi} \pm \tilde{\phi}_s - \gamma_2 \tilde{\psi}
+        u_\pm = \tilde{\Pi} \pm \tilde{\phi}_s - \gamma_2 \tilde{\psi} \\
+        (u_2)_i = (\delta_i^j - s_i s^j) \tilde{\phi}_j
     \end{cases}\,,
 \end{align}
 %
@@ -358,7 +363,8 @@ with the respective characteristic speeds being
 \begin{align}
     \begin{cases}
         v_0 = - (1 + \gamma_1) \beta^s \\
-        v_\pm = -\beta^s \pm \tilde{\alpha}
+        v_\pm = -\beta^s \pm \tilde{\alpha} \\
+        v_2 = -\beta^s
     \end{cases}\,.
 \end{align}
 

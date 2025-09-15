@@ -104,6 +104,27 @@ where $S_{\alpha \beta}$ is the Chebyshev synthesis matrix and $A_{n \beta}$ is 
 \section{Patching Boundary Conditions}
 \label{section:Patch_Boundaries}
 
+Since $\texttt{bamps}$ separates our domain into different patches, we need to impose boundary conditions between adjacent patches so that they can communicate data to each other. An effective way to impose these boundary conditions is to add appropriate penalty terms to the equations on these boundaries. This method, which we call \textit{Penalty Method}, imposes the needed boundary conditions while keeping the evolution equations at the boundary almost unchanged \cite{Pseudospectral_method_for_gravitational_wave_collapse,Spectral_methods_for_the_wave_equation_in_second-order_form}.
+
+It consists of adding to the equation of motion of the incoming characteristic variable a term of the form $(u_-^{BC}  - u_-)$, where $u_-$ is the incoming \textit{characteristic variable}. Thus, if the boundary condition $u_-^{BC} = u_-$ is satisfied, the penalty terms vanish. We can then determine the appropriate penalty terms to add to the equation when written in their fundamental form by rewriting our evolution equations on the boundaries as functions of the characteristic variables, incorporating the penalty terms, and then transforming our system back \cite{Pseudospectral_method_for_gravitational_wave_collapse,Spectral_methods_for_the_wave_equation_in_second-order_form}. That way, the evolution equations \eqref{eq:wave_equation_3+1} on the boundary will get modified to
+%
+\begin{align}
+    \left\{\begin{array}{@{}l@{}} 
+\dot{\tilde{\psi}}^{BC} = \dot{\tilde{\psi}} \\
+\dot{\tilde{\Pi}}^{BC} = \dot{\tilde{\Pi}} + \frac{1}{2} p \, \left( v_+(u_+^{BC}  - u_+) + v_- (u_-^{BC}  - u_-) \right) \\
+\dot{\phi}_i^{BC} = \dot{\phi}_i + \frac{1}{2} p \, n_i \, \left( v_+(u_+^{BC}  - u_+) - v_- (u_-^{BC}  - u_-) \right)  + p \, v_2 \left((u_2^{BC})_i  - (u_2)_i \right) \\
+\end{array}\right. ,
+\end{align}
+%
+where $p$ is the penalty coefficient, which can determined from a semi-discrete energy analysis, and $n^i$ is the unit outgoing normal vector to the boundary. However, if we allow for constraint violations in our system (as we did in equation \eqref{eq:wave_equation_constraint_violation}), the characteristic variables and their respective speeds will change, and we will need to modify the penalty terms accordingly, obtaining
+%
+\begin{align}
+    \left\{\begin{array}{@{}l@{}} 
+\dot{\tilde{\psi}}^{BC} = \dot{\tilde{\psi}} - p \, v_0 (u_0^{BC}  - u_0)\\
+\dot{\tilde{\Pi}}^{BC} = \dot{\tilde{\Pi}} + \frac{1}{2} p \, \left( v_+(u_+^{BC}  - u_+) + v_- (u_-^{BC}  - u_-) \right) - 2 \, \gamma_2 \, p \, v_0 (u_0^{BC}  - u_0)\\
+\dot{\phi}_i^{BC} = \dot{\phi}_i + \frac{1}{2} p \, n_i \, \left( v_+(u_+^{BC}  - u_+) - v_- (u_-^{BC}  - u_-) \right)  + p \, v_2 \left((u_2^{BC})_i  - (u_2)_i \right) \\
+\end{array}\right. .
+\end{align}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Adaptive Mesh Refinement}

@@ -1,4 +1,4 @@
-\begin{thebibliography}{9}
+\begin{thebibliography}{10}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -64,5 +64,13 @@ D.~Hilditch, A.~Weyhausen, and B.~Brügmann.
 \newblock ISSN 2470-0029.
 \newblock \doi{10.1103/physrevd.93.063006}.
 \newblock URL \url{http://dx.doi.org/10.1103/PhysRevD.93.063006}.
+
+\bibitem[Taylor et~al.(2010)Taylor, Kidder, and Teukolsky]{Spectral_methods_for_the_wave_equation_in_second-order_form}
+N.~W. Taylor, L.~E. Kidder, and S.~A. Teukolsky.
+\newblock Spectral methods for the wave equation in second-order form.
+\newblock \emph{Physical Review D}, 82\penalty0 (2), July 2010.
+\newblock ISSN 1550-2368.
+\newblock \doi{10.1103/physrevd.82.024037}.
+\newblock URL \url{http://dx.doi.org/10.1103/PhysRevD.82.024037}.
 
 \end{thebibliography}

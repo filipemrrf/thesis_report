@@ -110,22 +110,26 @@ It consists of adding to the equation of motion of the incoming characteristic v
 %
 \begin{align}
     \left\{\begin{array}{@{}l@{}} 
-\dot{\tilde{\psi}}^{BC} = \dot{\tilde{\psi}} \\
-\dot{\tilde{\Pi}}^{BC} = \dot{\tilde{\Pi}} + \frac{1}{2} p \, \left( v_+(u_+^{BC}  - u_+) + v_- (u_-^{BC}  - u_-) \right) \\
-\dot{\phi}_i^{BC} = \dot{\phi}_i + \frac{1}{2} p \, n_i \, \left( v_+(u_+^{BC}  - u_+) - v_- (u_-^{BC}  - u_-) \right)  + p \, v_2 \left((u_2^{BC})_i  - (u_2)_i \right) \\
-\end{array}\right. ,
+        (\partial_t\tilde{\psi})^{BC} = \partial_t\tilde{\psi} \\
+        (\partial_t\tilde{\Pi})^{BC} = \partial_t\tilde{\Pi} + \frac{1}{2} p \, \left( v_+(u_+^{BC}  - u_+) + v_- (u_-^{BC}  - u_-) \right) \\
+        (\partial_t\tilde{\phi}_i)^{BC} = \partial_t\tilde{\phi}_i + \frac{1}{2} p \, n_i \, \left( v_+(u_+^{BC}  - u_+) - v_- (u_-^{BC}  - u_-) \right)  + p \, v_2 \left((u_2^{BC})_i  - (u_2)_i \right) \\
+    \end{array}\right. ,
+    \label{eq:penalty_terms}
 \end{align}
 %
-where $p$ is the penalty coefficient, which can determined from a semi-discrete energy analysis, and $n^i$ is the unit outgoing normal vector to the boundary. However, if we allow for constraint violations in our system (as we did in equation \eqref{eq:wave_equation_constraint_violation}), the characteristic variables and their respective speeds will change, and we will need to modify the penalty terms accordingly, obtaining
+where $p$ is the penalty coefficient, which can determined from a semi-discrete energy analysis, and $n^i$ is the unit outgoing normal vector to the boundary. Even though in equation \eqref{eq:penalty_terms} the terms regarding every characteristic variable are included, it is important to note that only incoming characteristic variables are taken into account in this method, thus if any of the characteristic speeds are greater than $0$, the penalty term associated will be null. 
+
+If we allow for constraint violations in our system (as we did in equation \eqref{eq:wave_equation_constraint_violation}), the characteristic variables and their respective speeds will change, and we will need to modify the penalty terms accordingly, obtaining
 %
 \begin{align}
     \left\{\begin{array}{@{}l@{}} 
-\dot{\tilde{\psi}}^{BC} = \dot{\tilde{\psi}} - p \, v_0 (u_0^{BC}  - u_0)\\
-\dot{\tilde{\Pi}}^{BC} = \dot{\tilde{\Pi}} + \frac{1}{2} p \, \left( v_+(u_+^{BC}  - u_+) + v_- (u_-^{BC}  - u_-) \right) - 2 \, \gamma_2 \, p \, v_0 (u_0^{BC}  - u_0)\\
-\dot{\phi}_i^{BC} = \dot{\phi}_i + \frac{1}{2} p \, n_i \, \left( v_+(u_+^{BC}  - u_+) - v_- (u_-^{BC}  - u_-) \right)  + p \, v_2 \left((u_2^{BC})_i  - (u_2)_i \right) \\
-\end{array}\right. .
+        (\partial_t\tilde{\psi})^{BC} = \partial_t\tilde{\psi} - p \, v_0 (u_0^{BC}  - u_0)\\
+        (\partial_t\tilde{\Pi})^{BC} = \partial_t\tilde{\Pi} + \frac{1}{2} p \, \left( v_+(u_+^{BC}  - u_+) + v_- (u_-^{BC}  - u_-) \right) - 2 \, \gamma_2 \, p \, v_0 (u_0^{BC}  - u_0)\\
+        (\partial_t\tilde{\phi}_i)^{BC} = \partial_t\tilde{\phi}_i + \frac{1}{2} p \, n_i \, \left( v_+(u_+^{BC}  - u_+) - v_- (u_-^{BC}  - u_-) \right)  + p \, v_2 \left((u_2^{BC})_i  - (u_2)_i \right) \\
+    \end{array}\right. .
 \end{align}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Adaptive Mesh Refinement}
 \label{section:amr}
+

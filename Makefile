@@ -14,7 +14,7 @@ FILE=Thesis
 
 all:
 	pdflatex  ${FILE}
-	makeglossaries $(FILE)
+# makeglossaries $(FILE)
 	makeindex $(FILE).nlo -s nomencl.ist -o $(FILE).nls
 	bibtex ${FILE}
 	pdflatex  ${FILE}

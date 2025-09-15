@@ -3,8 +3,7 @@
 \contentsline {section}{Resumo}{vii}{section*.2}%
 \contentsline {section}{Abstract}{ix}{section*.3}%
 \contentsline {section}{List of Figures}{xiii}{section*.5}%
-\contentsline {section}{Nomenclature}{xv}{section*.7}%
-\contentsline {section}{Glossary}{xv}{section*.8}%
+\contentsline {section}{Nomenclature}{1}{section*.7}%
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Motivation}{1}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Topic Overview}{1}{section.1.2}%
@@ -18,8 +17,8 @@
 \contentsline {section}{\numberline {2.5}The Cubic Wave Equation}{11}{section.2.5}%
 \contentsline {chapter}{\numberline {3}Numerical Setup}{13}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Grid Setup}{13}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Numerical Method}{13}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Adaptive Mesh Refinement}{13}{section.3.3}%
+\contentsline {section}{\numberline {3.2}Numerical Method}{14}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Adaptive Mesh Refinement}{14}{section.3.3}%
 \contentsline {chapter}{\numberline {4}Results}{15}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Wave Equation in Hyperboloidal Slices}{15}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Wave Equation in Hyperboloidal Layers}{15}{section.4.2}%

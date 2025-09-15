@@ -1,8 +1,60 @@
-\begin{thebibliography}{0}
+\begin{thebibliography}{8}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[HILDITCH(2013)]{AN_INTRODUCTION_TO_WELLPOSEDNESS_AND_FREEEVOLUTION}
+D.~HILDITCH.
+\newblock An introduction to well-posedness and free-evolution.
+\newblock \emph{International Journal of Modern Physics A}, 28\penalty0 (22n23):\penalty0 1340015, Sept. 2013.
+\newblock ISSN 1793-656X.
+\newblock \doi{10.1142/s0217751x13400150}.
+\newblock URL \url{http://dx.doi.org/10.1142/S0217751X13400150}.
+
+\bibitem[Gourgoulhon(2007)]{3+1_Formalism_and_Bases_of_Numerical_Relativity}
+E.~Gourgoulhon.
+\newblock 3+1 formalism and bases of numerical relativity, 2007.
+\newblock URL \url{https://arxiv.org/abs/gr-qc/0703035}.
+
+\bibitem[Alcubierre(2008)]{Introduction_to_3+1_numerical_relativity}
+M.~Alcubierre.
+\newblock \emph{{Introduction to 3+1 numerical relativity}}.
+\newblock International series of monographs on physics. Oxford Univ. Press, Oxford, 2008.
+\newblock \doi{10.1093/acprof:oso/9780199205677.001.0001}.
+\newblock URL \url{https://cds.cern.ch/record/1138167}.
+
+\bibitem[Baumgarte and Shapiro(2010)]{Numerical_Relativity_Solving_Einsteins_Equations_on_the_Computer}
+T.~W. Baumgarte and S.~L. Shapiro.
+\newblock \emph{{Numerical Relativity: Solving Einstein's Equations on the Computer}}.
+\newblock Cambridge University Press, 2010.
+\newblock \doi{10.1017/CBO9781139193344}.
+
+\bibitem[Zenginoğlu(2011)]{Hyperboloidal_layers_for_hyperbolic_equations_on_unbounded_domains}
+A.~Zenginoğlu.
+\newblock Hyperboloidal layers for hyperbolic equations on unbounded domains.
+\newblock \emph{Journal of Computational Physics}, 230\penalty0 (6):\penalty0 2286--2302, Mar. 2011.
+\newblock ISSN 0021-9991.
+\newblock \doi{10.1016/j.jcp.2010.12.016}.
+\newblock URL \url{http://dx.doi.org/10.1016/j.jcp.2010.12.016}.
+
+\bibitem[Hilditch et~al.(2016)Hilditch, Harms, Bugner, Rueter, and Bruegmann]{The_evolution_of_hyperboloidal_data_with_the_dual_foliation_formalism_Mathematical_analysis_and_wave_equation_tests}
+D.~Hilditch, E.~Harms, M.~Bugner, H.~Rueter, and B.~Bruegmann.
+\newblock The evolution of hyperboloidal data with the dual foliation formalism: Mathematical analysis and wave equation tests, 2016.
+\newblock URL \url{https://arxiv.org/abs/1609.08949}.
+
+\bibitem[Wald(1984)]{wald:1984}
+R.~M. Wald.
+\newblock \emph{{General Relativity}}.
+\newblock The University od Chicago Press, 1984.
+
+\bibitem[Lindblom et~al.(2006)Lindblom, Scheel, Kidder, Owen, and Rinne]{A_new_generalized_harmonic_evolution_system}
+L.~Lindblom, M.~A. Scheel, L.~E. Kidder, R.~Owen, and O.~Rinne.
+\newblock A new generalized harmonic evolution system.
+\newblock \emph{Classical and Quantum Gravity}, 23\penalty0 (16):\penalty0 S447--S462, July 2006.
+\newblock ISSN 1361-6382.
+\newblock \doi{10.1088/0264-9381/23/16/s09}.
+\newblock URL \url{http://dx.doi.org/10.1088/0264-9381/23/16/S09}.
 
 \end{thebibliography}

@@ -1,4 +1,4 @@
-\begin{thebibliography}{8}
+\begin{thebibliography}{9}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -39,9 +39,9 @@ A.~Zenginoğlu.
 \newblock \doi{10.1016/j.jcp.2010.12.016}.
 \newblock URL \url{http://dx.doi.org/10.1016/j.jcp.2010.12.016}.
 
-\bibitem[Hilditch et~al.(2016)Hilditch, Harms, Bugner, Rueter, and Bruegmann]{The_evolution_of_hyperboloidal_data_with_the_dual_foliation_formalism_Mathematical_analysis_and_wave_equation_tests}
+\bibitem[Hilditch et~al.(2016{\natexlab{a}})Hilditch, Harms, Bugner, Rueter, and Bruegmann]{The_evolution_of_hyperboloidal_data_with_the_dual_foliation_formalism_Mathematical_analysis_and_wave_equation_tests}
 D.~Hilditch, E.~Harms, M.~Bugner, H.~Rueter, and B.~Bruegmann.
-\newblock The evolution of hyperboloidal data with the dual foliation formalism: Mathematical analysis and wave equation tests, 2016.
+\newblock The evolution of hyperboloidal data with the dual foliation formalism: Mathematical analysis and wave equation tests, 2016{\natexlab{a}}.
 \newblock URL \url{https://arxiv.org/abs/1609.08949}.
 
 \bibitem[Wald(1984)]{wald:1984}
@@ -56,5 +56,13 @@ L.~Lindblom, M.~A. Scheel, L.~E. Kidder, R.~Owen, and O.~Rinne.
 \newblock ISSN 1361-6382.
 \newblock \doi{10.1088/0264-9381/23/16/s09}.
 \newblock URL \url{http://dx.doi.org/10.1088/0264-9381/23/16/S09}.
+
+\bibitem[Hilditch et~al.(2016{\natexlab{b}})Hilditch, Weyhausen, and Brügmann]{Pseudospectral_method_for_gravitational_wave_collapse}
+D.~Hilditch, A.~Weyhausen, and B.~Brügmann.
+\newblock Pseudospectral method for gravitational wave collapse.
+\newblock \emph{Physical Review D}, 93\penalty0 (6), Mar. 2016{\natexlab{b}}.
+\newblock ISSN 2470-0029.
+\newblock \doi{10.1103/physrevd.93.063006}.
+\newblock URL \url{http://dx.doi.org/10.1103/PhysRevD.93.063006}.
 
 \end{thebibliography}

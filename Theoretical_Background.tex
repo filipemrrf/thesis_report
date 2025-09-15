@@ -52,7 +52,7 @@ If, for every unit spatial vector $s^i$, the \textit{principal symbol} of our sy
     ||T_s|| + ||T_s^{-1}|| \leq K,
 \end{align}
 %
-where $T_s$ is a matrix that has the eigenvectors of $P^s$ as columns and we have the usual definition of the matrix norm $||\cdot||$; we call our system \textit{strongly hyperbolic}. The components of the vector $v = T^{-1}_s u$ are called \textit{characteristic variables} in the $s^i$ direction, which satisfy advection equations with speeds equal to the eigenvectors of the principal symbol up to non-principal terms and derivatives transverse to the $s^i$ direction. In other words, they satisfy equation \eqref{eq:strong_hyp} along the $s^i$ direction. These variables will be relevant when we discuss how \texttt{bamps} handles patch boundaries in section \ref{}.
+where $T_s$ is a matrix that has the eigenvectors of $P^s$ as columns and we have the usual definition of the matrix norm $||\cdot||$; we call our system \textit{strongly hyperbolic}. The components of the vector $v = T^{-1}_s u$ are called \textit{characteristic variables} in the $s^i$ direction, which satisfy advection equations with speeds equal to the eigenvectors of the principal symbol up to non-principal terms and derivatives transverse to the $s^i$ direction. In other words, they satisfy equation \eqref{eq:strong_hyp} along the $s^i$ direction. These variables will be relevant when we discuss how \texttt{bamps} handles patch boundaries in section \ref{section:Patch_Boundaries}.
 
 
 Let us now consider a system of partial differential equations written as

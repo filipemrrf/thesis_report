@@ -18,12 +18,13 @@
 \contentsline {chapter}{\numberline {3}Numerical Setup}{13}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Grid Setup}{13}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Numerical Method}{14}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Adaptive Mesh Refinement}{14}{section.3.3}%
-\contentsline {chapter}{\numberline {4}Results}{15}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Wave Equation in Hyperboloidal Slices}{15}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Wave Equation in Hyperboloidal Layers}{15}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Cubic Wave Equation}{15}{section.4.3}%
-\contentsline {chapter}{\numberline {5}Conclusions}{17}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Achievements}{17}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Future Work}{17}{section.5.2}%
-\contentsline {chapter}{Bibliography}{19}{section*.10}%
+\contentsline {section}{\numberline {3.3}Patching Boundary Conditions}{15}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Adaptive Mesh Refinement}{15}{section.3.4}%
+\contentsline {chapter}{\numberline {4}Results}{17}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Wave Equation in Hyperboloidal Slices}{17}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Wave Equation in Hyperboloidal Layers}{17}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Cubic Wave Equation}{17}{section.4.3}%
+\contentsline {chapter}{\numberline {5}Conclusions}{19}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Achievements}{19}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Future Work}{19}{section.5.2}%
+\contentsline {chapter}{Bibliography}{21}{section*.10}%

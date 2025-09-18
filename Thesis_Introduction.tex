@@ -11,29 +11,53 @@
 \chapter{Introduction}
 \label{chapter:introduction}
 
-Insert your chapter material here.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Motivation}
 \label{section:motivation}
 
-Relevance of the subject.
+Gravitational waves have been in the minds of physicists since Albert Einstein first predicted their existence in 1916 as perturbations in the curvature of spacetime that propagate at the speed of light. However, it was not until nearly a century later, in 2015, that the Laser Interferometer Gravitational-Wave Observatory (LIGO) made the first direct detection of this fascinating phenomenon \cite{PhysRevLett.116.061102}. This groundbreaking observation not only confirmed a key prediction of Einstein's general theory of relativity but also inaugurated the field of gravitational-wave astronomy, opening an entirely new window through which to observe and understand the universe.
+
+Gravitational waves immediately caught the attention of the scientific community due to their unique interaction with matter. Unlike electromagnetic waves, which can be absorbed, scattered, or reprocessed by intervening media, gravitational waves propagate essentially unimpeded from their astrophysical sources to Earth. This property allows them to carry direct information about highly energetic and compact systems, including binary black hole mergers, neutron star collisions, and potentially processes in the early universe that are otherwise inaccessible to conventional astronomical methods.
+
+Even though this new method of observation opens the door to a wealth of scientific opportunities, it also presents significant challenges. The signals detected by LIGO and other gravitational wave observatories are incredibly weak by the time they reach Earth, necessitating extremely sensitive detectors and sophisticated data analysis techniques to extract meaningful information from the noise. In order to interpret these signals accurately, it is crucial to have precise theoretical models of the gravitational waveforms produced by various astrophysical events. This is where numerical relativity comes into play, providing the tools to simulate the complex dynamics of spacetime and matter under extreme conditions. However, given the distance of Earth from the sources of gravitational waves, to predict the signals that detectors will observe, we must be able to extract the gravitational waves at null infinity, which is a significant challenge in itself. 
+
+State-of-the-art numerical relativity codes, such as the Einstein Toolkit \cite{einstein_toolkit_2025}, do not have this capability built in, working around this issue by calculating the wave front at different radii and then extrapolating the results until future null infinity, which naturally comes at the cost of some amount of systematic error on the results. In this work, we present an alternative to the current methodology by evolving toy models for gravitational waves in a compactified spacetime, thereby bypassing the need for extrapolation.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Topic Overview}
 \label{section:overview}
 
-Provide an overview of the topic to be studied.
+- Anil proposed hyp layers
 
+- Some work was done by Christian / David / Alex / Anil
+
+- I continue to try and bridge the gap by implementing a toy model for gravitational waves in a compactified spacetime in full 3D
+
+- It may also be important toward developing PDE theory since it is one of the few PDE solver that is spectral full 3d and with AMR for the cubic wave equation
+
+- mention objectives and their importance
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Objectives and Deliverables}
 \label{section:objectives}
 
-Explicitly state the objectives set to be achieved with this thesis.
+Throughout this work, we aim to:
 
-Also list the expected deliverables.
+\begin{itemize}
+    \item Solve the wave equation in hyperboloidal slices using spectral methods in full 3D with Adaptive Mesh Refinement (AMR);
+    
+    \item Solve the wave equation in hyperboloidal layers using spectral methods in full 3D with AMR;
+    
+    \item Solve the wave cubic equation in hyperboloidal layers using spectral methods in full 3D with AMR;
+
+    \item Study the blowup rate of the cubic wave equation and compare with theoretical predictions given by modern Partial Differential Equations (PDE) theory;
+
+    \item Study the late time decay rates of the cubic wave equation and compare with theoretical predictions given by modern PDE theory;
+    
+    \item Study the convergence of the numerical solutions to the cubic wave equation towards an attractor solution, as predicted by modern PDE theory.
+\end{itemize}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

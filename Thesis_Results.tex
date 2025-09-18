@@ -16,22 +16,37 @@ Insert your chapter material here.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Wave Equation in Hyperboloidal Slices}
-\label{section:problem}
+\label{section:hyp_wave}
 
-Description of the baseline problem.
+The first step towards our goal is to implement the wave equation from equation \eqref{eq:wave_equation_3+1} in hyperboloidal slices. We will construct our hyperboloidal slices using 
+%
+\begin{align}
+    H(R) = \frac{2 R^2 + s^2 - \sqrt{4 R^2 s^2 + s^4}}{2 \sqrt{R^2 + 1}} \,, \quad \quad \quad \Omega(r) = 1 - \frac{r^2}{s^2} \,,
+\end{align}
+%
+as heigh and compress functions respectively, where $s$ is a free parameter that controls where null infinity is located. The details of this construction were discussed in section \ref{section:compactification}. This particular choice of heigh and compress functions is of particular interest since it leads to a constant outgoing characteristic speed, which has the advantage of keeping the shape of the waves as they propagate \cite{Hyperboloidal_layers_for_hyperbolic_equations_on_unbounded_domains,The_evolution_of_hyperboloidal_data_with_the_dual_foliation_formalism_Mathematical_analysis_and_wave_equation_tests}. This, however comes with the disadvantage of having an incoming characteristic speed that goes to zero as we approach null infinity. This is an acceptable trade-off since we are not expecting incoming waves in our setup. In figure \ref{fig:hyp_speeds} we can see how the incoming and outgoing light speeds vary along our computational domain.
+
+\textcolor{red}{INSERT FIGURE WITH SPEEDS HERE}
+
+Giving the initial conditions 
+%
+\begin{align}
+    sjdjfçlsdg
+\end{align}
+%
+and setting $s = 30$, we obtain the evolution shown in figures \ref{fig:hyp_wave1} and \ref{fig:hyp_wave2}, which satisfies the 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Wave Equation in Hyperboloidal Layers}
-\label{section:baseline}
+\label{section:hyp_layers_wave}
 
 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Cubic Wave Equation}
-\label{section:enhanced}
+\label{section:hyp_cubic_wave}
 
-Quest for the optimal solution.
 
 

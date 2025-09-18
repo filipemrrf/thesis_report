@@ -110,7 +110,7 @@ We start by considering a spacetime with the metric $g_{ab}$~. To maintain hyper
 
 Given two adjacent hypersurfaces $\Sigma_t$~and $\Sigma_{t+dt}$~in a specific foliation, we can determine the geometry of the region of spacetime between them by studying the movement of observers moving along the direction normal to the hypersurfaces. We call those observers \textit{Eulerian}. Considering those observers, we define three quantities that can describe our region of interest: the three-dimensional metric $\gamma_{ij}$~(which measures proper distances within the hypersurfaces), the lapse function $\alpha$~(which is the lapse of proper time between both hypersurfaces measured by \textit{Eulerian observers}), and the shift vector $\beta^i$~(which is the relative velocity between the \textit{Eulerian observers} and the lines of constant spatial coordinates). It is also useful to define the extrinsic curvature $K_{\mu\nu}$~(which measures the change of the normal vector to the hypersurface when parallel transported from one point in the hypersurface to another) and the acceleration of the \textit{Eulerian observers} $a^i$ \cite{3+1_Formalism_and_Bases_of_Numerical_Relativity,Introduction_to_3+1_numerical_relativity,Numerical_Relativity_Solving_Einsteins_Equations_on_the_Computer}.
 
-\begin{figure}[h]
+\begin{figure}[t!]
 \centering
 \includegraphics[width=0.5\textwidth]{Figures/Definitions_of_the_3+1_quantities.png}
 \caption{Geometric definition of the lapse function $\alpha$ and the shift vector $\beta^i$. The lapse function $\alpha$ is the proper time between two adjacent hypersurfaces $\Sigma_t$ and $\Sigma_{t+dt}$ measured by \textit{Eulerian observers}. The shift vector $\beta^i$ is the relative velocity between the \textit{Eulerian observers} and the lines of constant spatial coordinates. \cite{Introduction_to_3+1_numerical_relativity}}
@@ -226,7 +226,7 @@ where we have defined $\Xi(r)$ and $\mathcal{R}(r)$ as
 %
 with $R_i$ being the interface radius, which we will now briefly discuss.
 
-In some applications, it may be useful to consider a flat slice where most of the dynamics happen, followed by a hyperboloidal slice, which allows us to study the decay of our solution as it approaches future null infinity \cite{Hyperboloidal_layers_for_hyperbolic_equations_on_unbounded_domains,The_evolution_of_hyperboloidal_data_with_the_dual_foliation_formalism_Mathematical_analysis_and_wave_equation_tests}. That scenario can be achieved using \textit{hyperboloidal layers}, which consist of performing a transition from flat slices to hyperboloidal slices at a chosen interface radius $R_i$, making it such that we achieve a hyperboloidal slice after some transition length $l_t$. The details of this transition will be further discussed in section \ref{}.
+In some applications, it may be useful to consider a flat slice where most of the dynamics happen, followed by a hyperboloidal slice, which allows us to study the decay of our solution as it approaches future null infinity \cite{Hyperboloidal_layers_for_hyperbolic_equations_on_unbounded_domains,The_evolution_of_hyperboloidal_data_with_the_dual_foliation_formalism_Mathematical_analysis_and_wave_equation_tests}. That scenario can be achieved using \textit{hyperboloidal layers}, which consist of performing a transition from flat slices to hyperboloidal slices at a chosen interface radius $R_i$, making it such that we achieve a hyperboloidal slice after some transition length $l_t$. The details of this transition will be further discussed in section \ref{section:hyp_layers_wave}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -293,7 +293,7 @@ where $\mathcal{L}_n$~is the Lie derivative along the normal vector to the hyper
     \end{cases}\,,
 \end{align}
 %
-where $\overset{!}{=}$ denotes that we may allow for small violations of these constraints due to numerical errors. The second constraint is of particular importance as we will see later in section \ref{}. Due to this importance, we will denote it as $C_i$.
+where $\overset{!}{=}$ denotes that we may allow for small violations of these constraints due to numerical errors. The second constraint is of particular importance as we will see later in section \ref{section:hyp_wave}. Due to this importance, we will denote it as $C_i$.
 
 Using the previous definitions, we can write the wave equation as a set of first-order partial differential equations as
 %
@@ -336,7 +336,7 @@ with the associated characteristic speeds being
     \end{cases}\,.
 \end{align}
 
-For reasons that will be explained in more detail in section \ref{}, it may be useful to add multiples of the constraint $C_i$~to the evolution equations of our system since doing so does not alter the physical behaviour of the system, but it may improve numerical stability. Doing so, we obtain the final form of our system as
+In order to keep constraint violations from growing exponentially, it may be useful to add multiples of the constraint $C_i$~to the evolution equations of our system since doing so does not alter the physical behavior of the system, but it improves numerical stability. Doing so, we obtain the final form of our system as
 %
 \begin{align}
     \begin{cases}

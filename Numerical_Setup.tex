@@ -43,7 +43,7 @@ Each patch can be further divided into several subpatches, which are smaller cub
 
 \begin{figure}[t!]
     \centering
-    \includegraphics[width=0.8\textwidth]{Figures/Cubed_Ball.png}
+    \includegraphics[width=0.75\textwidth]{Figures/Cubed_Ball.png}
     \caption{Two-dimensional sketch of the \texttt{bamps} cubed-ball grid layout. The grid is composed of several patches shaped like deformed cubes. These patches can be further divided into subpatches. Each subpatch is covered by Gauss-Lobatto grids. \cite{Pseudospectral_method_for_gravitational_wave_collapse}}
     \label{fig:cubed_ball_grid}
 \end{figure}
@@ -52,10 +52,10 @@ Each patch can be further divided into several subpatches, which are smaller cub
 \section{Numerical Method}
 \label{section:Numerical_Method}
 
-\texttt{bamps} uses the method of lines to solve the system of partial differential equations, meaning that it treats time as a continuous variable and space as discrete. In order to integrate fields forward in time, a 4th order Runge-Kutta scheme is used. The spatial discretization is performed using Gauss-Lobatto collocation points, which is done by mapping the local patch coordinates $(\bar{x},\bar{y},\bar{z})$ to the reference cube coordinates $(\tilde{x},\tilde{y},\tilde{z}) \in [-1,1]^3$ and then using the Gauss-Lobatto points in each direction. The Gauss-Lobatto points in the $\tilde{x}$ direction are given by
+\texttt{bamps} uses the method of lines to solve the system of partial differential equations, meaning that it treats time as a continuous variable and space as discrete. To integrate fields forward in time, a fourth-order Runge-Kutta scheme is employed. The spatial discretization is performed using Gauss-Lobatto collocation points, which is done by mapping the local patch coordinates $(\bar{x},\bar{y},\bar{z})$ to the reference cube coordinates $(\tilde{x},\tilde{y},\tilde{z}) \in [-1,1]^3$ and then using the Gauss-Lobatto points in each direction. The Gauss-Lobatto points in the $\tilde{x}$ direction are given by
 %
 \begin{align}
-    \tilde{x}_\alpha = - \cos\left(\frac{\pi \alpha}{N_x -1}\right) \; ,
+    \tilde{x}_\alpha = - \cos\left(\frac{\pi \alpha}{N_x -1}\right) \; ,
 \end{align}
 %
 with $\alpha = 0,1,\ldots,N_x -1$ and $N_x$ being the number of grid points in the $\tilde{x}$ direction. The collocation points in the other two directions are defined similarly. It is important to note that the number of angular grid points must be the same in all patches to ensure that the grid points on the boundaries of neighboring patches match \cite{Pseudospectral_method_for_gravitational_wave_collapse}. A grid generated using Gauss-Lobatto points can be seen in figure \ref{fig:cubed_ball_grid}.
@@ -63,10 +63,10 @@ with $\alpha = 0,1,\ldots,N_x -1$ and $N_x$ being the number of grid points in t
 On each of the collocation points, all the evolution fields $u$ are expanded in each dimension in terms of Chebyshev polynomials $T_n(\tilde{x})$ as
 %
 \begin{align}
-    u_{\alpha \beta \delta} = u(\tilde{x}_\alpha, \tilde{y}_\beta, \tilde{z}_\delta) = \sum_{l=0}^{N_z -1} c^x_n(\tilde{y}_\beta, \tilde{z}_\delta) \, T_n(\tilde{x}_\alpha) \; ,
+ u_{\alpha \beta \delta} = u(\tilde{x}_\alpha, \tilde{y}_\beta, \tilde{z}_\delta) = \sum_{l=0}^{N_z -1} c^x_n(\tilde{y}_\beta, \tilde{z}_\delta) \, T_n(\tilde{x}_\alpha) \; ,
 \end{align}
 %
-and similarly for the $\tilde{y}$ and $\tilde{z}$ directions. This expansion allows for a spectral representation of the fields, which is advantageous since it allows for the analytical differentiation of our expansion through the analytical derivatives of the Chebyshev polynomials. Additionally, since for many applications the contribution of higher order polynomials decays exponentially, the numerical error in spectral methods usually decays exponentially with the resolution \cite{Numerical_Relativity_Solving_Einsteins_Equations_on_the_Computer}. \texttt{bamps} uses the pseudospectral approach, meaning that instead of storing the coefficients $c^x_n(\tilde{y}_\beta, \tilde{z}_\delta)$, it stores the values of the fields at the collocation points. The spatial derivatives of the fields are computed using matrix multiplication. For example, the derivative in the $\tilde{x}$ direction is computed as
+and similarly for the $\tilde{y}$ and $\tilde{z}$ directions. This expansion enables a spectral representation of the fields, which is advantageous as it facilitates the analytical differentiation of our expansion through the analytical derivatives of the Chebyshev polynomials. Additionally, since for many applications the contribution of higher order polynomials decays exponentially, the numerical error in spectral methods usually decays exponentially with the resolution \cite{Numerical_Relativity_Solving_Einsteins_Equations_on_the_Computer}. \texttt{bamps} uses the pseudospectral approach, meaning that instead of storing the coefficients $c^x_n(\tilde{y}_\beta, \tilde{z}_\delta)$, it stores the values of the fields at the collocation points. The spatial derivatives of the fields are computed using matrix multiplication. For example, the derivative in the $\tilde{x}$ direction is computed as
 %
 \begin{align}
     (\partial_{\tilde{x}} u)_{\alpha \beta \delta} = \sum_{n=0}^{N_x -1} D_{\alpha n} u_{n \beta \delta} \; ,
@@ -77,19 +77,19 @@ where $D_{\alpha n}$ is the Gauss-Lobatto differentiation matrix
 \begin{align}
     D_{\alpha\beta}=
     \begin{cases}
-    -\frac{2(N_x-1)^2+1}{6} & \alpha=\beta=0 \\
-    \frac{q_\alpha}{q_\beta}\frac{(-1)^{\alpha+\beta}}{\tilde{x}_\alpha-\tilde{x}_\beta} & \alpha\neq\beta \\
-    \frac{-\tilde{x}_\beta}{2(1-\tilde{x}_\beta^2)} & \alpha=\beta=1,\cdots,N_x-2 \\
-    \frac{2(N_x-1)^2+1}{6} & \alpha=\beta=N_x-1
+        -\frac{2(N_x-1)^2+1}{6} & \alpha=\beta=0 \\
+        \frac{q_\alpha}{q_\beta}\frac{(-1)^{\alpha+\beta}}{\tilde{x}_\alpha-\tilde{x}_\beta} & \alpha\neq\beta \\
+        \frac{-\tilde{x}_\beta}{2(1-\tilde{x}_\beta^2)} & \alpha=\beta=1,\cdots,N_x-2 \\
+        \frac{2(N_x-1)^2+1}{6} & \alpha=\beta=N_x-1
     \end{cases} \, ,
 \end{align}
 %
 where $q_\alpha = 2$ on the boundaries and $q_\alpha = 1$ otherwise \cite{Pseudospectral_method_for_gravitational_wave_collapse,Numerical_Relativity_Solving_Einsteins_Equations_on_the_Computer}.
 
-In order to ensure numerical stability, \texttt{bamps} uses a filtering method to remove high-frequency modes. The filtering is applied after each full time step and consists of multiplying the fields with a filter matrix in each direction
+To ensure numerical stability, \texttt{bamps} uses a filtering method to remove high-frequency modes. The filtering is applied after each full time step and consists of multiplying the fields by a filter matrix in each direction
 %
 \begin{align}
-    (\mathcal{F}u)_{\alpha \beta \delta} = \sum_{n=0}^{N_x -1} \mathcal{F}_{n \alpha} u_{n \beta \delta} \; ,
+ (\mathcal{F}u)_{\alpha \beta \delta} = \sum_{n=0}^{N_x -1} \mathcal{F}_{n \alpha} u_{n \beta \delta} \; ,
 \end{align}
 %
 where the filter matrix $\mathcal{F}_{n \alpha}$ is given by
@@ -100,7 +100,7 @@ where the filter matrix $\mathcal{F}_{n \alpha}$ is given by
 %
 where $S_{\alpha \beta}$ is the Chebyshev synthesis matrix and $A_{n \beta}$ is Chebyshev analysis matrix \cite{Pseudospectral_method_for_gravitational_wave_collapse,Numerical_Relativity_Solving_Einsteins_Equations_on_the_Computer}.
 
-The \texttt{bamps} code also supports both 1 dimensional and 2 dimensional reductions, called the cartoon method. TIt is also able to handle mirror symmetries along the $x$, $y$ and $z$ directions \cite{The_evolution_of_hyperboloidal_data_with_the_dual_foliation_formalism_Mathematical_analysis_and_wave_equation_tests}.
+The \texttt{bamps} code also supports both 1-dimensional and 2-dimensional reductions, called the cartoon method. It is also able to handle mirror symmetries along the $x$, $y$, and $z$ directions \cite{The_evolution_of_hyperboloidal_data_with_the_dual_foliation_formalism_Mathematical_analysis_and_wave_equation_tests}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Patching Boundary Conditions}
@@ -108,18 +108,18 @@ The \texttt{bamps} code also supports both 1 dimensional and 2 dimensional reduc
 
 Since $\texttt{bamps}$ separates our domain into different patches, we need to impose boundary conditions between adjacent patches so that they can communicate data to each other. An effective way to impose these boundary conditions is to add appropriate penalty terms to the equations on these boundaries. This method, which we call \textit{Penalty Method}, imposes the needed boundary conditions while keeping the evolution equations at the boundary almost unchanged \cite{Pseudospectral_method_for_gravitational_wave_collapse,Spectral_methods_for_the_wave_equation_in_second-order_form}.
 
-It consists of adding to the equation of motion of the incoming characteristic variable a term of the form $(u_-^{BC}  - u_-)$, where $u_-$ is the incoming \textit{characteristic variable}. Thus, if the boundary condition $u_-^{BC} = u_-$ is satisfied, the penalty terms vanish. We can then determine the appropriate penalty terms to add to the equation when written in their fundamental form by rewriting our evolution equations on the boundaries as functions of the characteristic variables, incorporating the penalty terms, and then transforming our system back \cite{Pseudospectral_method_for_gravitational_wave_collapse,Spectral_methods_for_the_wave_equation_in_second-order_form}. That way, the evolution equations \eqref{eq:wave_equation_3+1} on the boundary will get modified to
+It consists of adding to the equation of motion of the incoming characteristic variable a term of the form $(u_-^{BC}  - u_-)$, where $u_-$ is the incoming \textit{characteristic variable}. Thus, if the boundary condition $u_-^{BC} = u_-$ is satisfied, the penalty terms vanish. We can then determine the appropriate penalty terms to add to the equation when written in their fundamental form by rewriting our evolution equations on the boundaries as functions of the characteristic variables, incorporating the penalty terms, and then transforming our system back \cite{Pseudospectral_method_for_gravitational_wave_collapse,Spectral_methods_for_the_wave_equation_in_second-order_form}. That way, the evolution equations \eqref{eq:wave_equation_3+1} on the boundary will get modified to
 %
 \begin{align}
     \left\{\begin{array}{@{}l@{}} 
         (\partial_t\tilde{\psi})^{BC} = \partial_t\tilde{\psi} \\
-        (\partial_t\tilde{\Pi})^{BC} = \partial_t\tilde{\Pi} + \frac{1}{2} p \, \left( v_+(u_+^{BC}  - u_+) + v_- (u_-^{BC}  - u_-) \right) \\
-        (\partial_t\tilde{\phi}_i)^{BC} = \partial_t\tilde{\phi}_i + \frac{1}{2} p \, n_i \, \left( v_+(u_+^{BC}  - u_+) - v_- (u_-^{BC}  - u_-) \right)  + p \, v_2 \left((u_2^{BC})_i  - (u_2)_i \right) \\
+        (\partial_t\tilde{\Pi})^{BC} = \partial_t\tilde{\Pi} + \frac{1}{2} p \, \left( v_+(u_+^{BC}  - u_+) + v_- (u_-^{BC}  - u_-) \right) \\
+        (\partial_t\tilde{\phi}_i)^{BC} = \partial_t\tilde{\phi}_i + \frac{1}{2} p \, n_i \, \left( v_+(u_+^{BC}  - u_+) - v_- (u_-^{BC}  - u_-) \right)  + p \, v_2 \left((u_2^{BC})_i  - (u_2)_i \right) \\
     \end{array}\right. ,
     \label{eq:penalty_terms}
 \end{align}
 %
-where $p$ is the penalty coefficient, which can determined from a semi-discrete energy analysis, and $n^i$ is the unit outgoing normal vector to the boundary. Even though in equation \eqref{eq:penalty_terms} the terms regarding every characteristic variable are included, it is important to note that only incoming characteristic variables are taken into account in this method, thus if any of the characteristic speeds are greater than $0$, the penalty term associated will be null. 
+where $p$ is the penalty coefficient, which can be determined from a semi-discrete energy analysis, and $n^i$ is the unit outgoing normal vector to the boundary. Even though in equation \eqref{eq:penalty_terms} the terms regarding every characteristic variable are included, it is important to note that only incoming characteristic variables are taken into account in this method; thus, if any of the characteristic speeds are greater than $0$, the penalty term associated will be null. 
 
 If we allow for constraint violations in our system (as we did in equation \eqref{eq:wave_equation_constraint_violation}), the characteristic variables and their respective speeds will change, and we will need to modify the penalty terms accordingly, obtaining
 %
@@ -135,7 +135,7 @@ If we allow for constraint violations in our system (as we did in equation \eqre
 \section{Adaptive Mesh Refinement}
 \label{section:amr}
 
-\texttt{bamps} has the capability of generating new grids during the evolution in order to supply additional resolution where needed to adequately represent the solution, and consolidate these fine grids back into fewer coarser ones once the additional resolution is no longer required (h-refinement). It is also able to adjust the resolution in any individual grid (p-refinement). This process is called Adaptive Mesh Refinement (AMR).
+\texttt{bamps} has the capability of generating new grids during the evolution to supply additional resolution where needed to adequately represent the solution, and consolidate these fine grids back into fewer coarser ones once the improved resolution is no longer required (h-refinement). The code is also capable of adjusting the resolution in any individual grid (p-refinement). This process is called Adaptive Mesh Refinement (AMR).
 
 The AMR procedure in \texttt{bamps} consists in:
 %
@@ -144,14 +144,14 @@ The AMR procedure in \texttt{bamps} consists in:
     \item Generate a set of initial h-refinement flags;
     \item Modify the h-refinement flags to satisfy the constraints for a 'legal' \texttt{bamps} grid;
     \item Apply the h-refinement operations;
-    \item  Perform load balancing to consolidate grids that are marked to be coarsened together;
+    \item Perform load balancing to consolidate grids that are marked to be coarsened together;
     \item Apply h-coarsening operations;
     \item Evaluate the p-refinement indicator function on each grid;
     \item Apply p-refinement and p-coarsening operations;
     \item Apply final load balancing.
 \end{enumerate}
 
-Several indicators can be used to determine where refinement is needed. In this work, we will use the \textit{truncation error indicator}, which estimates the truncation error of our spectral expansion. This indicator is calculated by performing the spectral decomposition of the evolution fields as described in section \ref{section:Numerical_Method} and then constructing the sequence
+It is possible to define several indicators to determine where refinement is needed. In this work, we will use the \textit{truncation error indicator}, which estimates the truncation error of our spectral expansion. This indicator is calculated by performing the spectral decomposition of the evolution fields as described in section \ref{section:Numerical_Method} and then constructing the sequence
 %
 \begin{align}
     \tilde{c}_i = \sqrt{\frac{1}{N} \sum_{k=1}^N c_i^k} \; , \quad \quad i = 1, 2, \ldots, \tilde{n} \;
@@ -165,11 +165,11 @@ where $\tilde{n}$ is the highest mode which is not affected by the filter descri
 %
 where $a$ and $b$ are the slope and the offset obtained from the least squares fit on the logarithm of the sequence $\tilde{c}_i$ \cite{Adaptive_hp_refinement_for_spectral_elements_in_numerical_relativity}.
 
-It is important to note that the flags generated in the AMR procedure are then modified to ensure that the end state satisfies the constraints for a 'legal' \texttt{bamps} grid, as previously mentioned. This modification can can be visualized in figure \ref{fig:amr_legal}. In a 'legal' \texttt{bamps} grid, each subpatch is not allowed to be more than one refinement level apart from any of its neighbors, and the grid structure must satisfy a 1:2 condition, meaning that if a subpatch is refined, all its neighbors must either be at the same refinement level or one level coarser. This is done to ensure that the grid structure remains consistent and that the numerical methods used in \texttt{bamps} can operate correctly across patch boundaries \cite{Adaptive_hp_refinement_for_spectral_elements_in_numerical_relativity}.
+It is important to note that the flags generated in the AMR procedure are then modified to ensure that the end state satisfies the constraints for a 'legal' \texttt{bamps} grid, as previously mentioned. This modification can be visualized in figure \ref{fig:amr_legal}. In a 'legal' \texttt{bamps} grid, each subpatch is not allowed to be more than one refinement level apart from any of its neighbors, and the grid structure must satisfy a 1:2 condition. This means that if a subpatch is refined, all its neighbors must either be at the same refinement level or one level coarser. This is done to ensure that the grid structure remains consistent and that the numerical methods used in \texttt{bamps} can operate correctly across patch boundaries \cite{Adaptive_hp_refinement_for_spectral_elements_in_numerical_relativity}.
 
 \begin{figure}[t!]
     \centering
     \includegraphics[width=0.5\textwidth]{Figures/AMR.png}
-    \caption{Example of a grid that does not satisfy the constraints for a 'legal' \texttt{bamps} grid (left) and the same grid after the modification of the h-refinement flags to satisfy these constraints (right). In a 'legal' \texttt{bamps} grid, each subpatch is not allowed to be more than one refinement level apart from any of its neighbors, and the grid structure must satisfy a 1:2 condition, meaning that if a subpatch is refined, all its neighbors must either be at the same refinement level or one level coarser. This is done to ensure that the grid structure remains consistent and that the numerical methods used in \texttt{bamps} can operate correctly across patch boundaries \cite{Adaptive_hp_refinement_for_spectral_elements_in_numerical_relativity}.}
+    \caption{Example of a grid that does not satisfy the constraints for a 'legal' \texttt{bamps} grid (left) and the same grid after the modification of the h-refinement flags to obey these constraints (right). In a 'legal' \texttt{bamps} grid, each subpatch is not allowed to be more than one refinement level apart from any of its neighbors, and the grid structure must satisfy a 1:2 condition. Thus, if a subpatch is refined, all its neighbors must either be at the same refinement level or one level coarser. This change in refinement level is made to ensure that the grid structure remains consistent and that the numerical methods used in \texttt{bamps} can operate correctly across patch boundaries \cite{Adaptive_hp_refinement_for_spectral_elements_in_numerical_relativity}.}
     \label{fig:amr_legal}
 \end{figure}

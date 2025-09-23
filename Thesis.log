@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.4.18)  18 SEP 2025 15:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.4.18)  23 SEP 2025 16:47
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -286,7 +286,17 @@ Package: supertabular 2020/02/02 v4.1g the supertabular environment
 )) (/usr/share/texlive/texmf-dist/tex/latex/glossaries/styles/glossary-tree.sty
 Package: glossary-tree 2023/09/29 v4.53 (NLCT)
 \glstreeindent=\skip69
-)) (/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+))
+\glswrite=\write4
+\glo@main@file=\write5
+\openout5 = `Thesis.glo'.
+
+Package glossaries Info: Writing glossary file Thesis.glo on input line 175.
+\glo@acronym@file=\write6
+\openout6 = `Thesis.acn'.
+
+Package glossaries Info: Writing glossary file Thesis.acn on input line 175.
+ (/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
  (/usr/share/texlive/texmf-dist/tex/generic/iftex/ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
@@ -712,8 +722,8 @@ Package caption Info: rotating package is loaded.
 Package caption Info: End \AtBeginDocument code.
 Package hyperref Info: Link coloring ON on input line 94.
  (./Thesis.out) (./Thesis.out)
-\@outlinefile=\write4
-\openout4 = `Thesis.out'.
+\@outlinefile=\write7
+\openout7 = `Thesis.out'.
 
  (/usr/share/texlive/texmf-dist/tex/latex/pdflscape/pdflscape.sty
 Package: pdflscape 2022-10-27 v0.13 Display of landscape pages in PDF
@@ -725,12 +735,12 @@ Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 )) (./Thesis_FrontCover.tex
 Package pdftex.def Info: Option `bb' equivalent to `viewport' with the pdftex driver on input line 15.
-<Figures/IST_A_CMYK_POS.pdf, id=120, 845.0471pt x 597.51233pt>
+<Figures/IST_A_CMYK_POS.pdf, id=124, 845.0471pt x 597.51233pt>
 File: Figures/IST_A_CMYK_POS.pdf Graphic file (type pdf)
 <use Figures/IST_A_CMYK_POS.pdf>
 Package pdftex.def Info: Figures/IST_A_CMYK_POS.pdf  used on input line 15.
 (pdftex.def)             Requested size: -78.38533pt x -90.76195pt.
-<Figures/Cover_Image_cut.png, id=121, 722.7pt x 215.00325pt>
+<Figures/Cover_Image_cut.png, id=125, 722.7pt x 215.00325pt>
 File: Figures/Cover_Image_cut.png Graphic file (type png)
 <use Figures/Cover_Image_cut.png>
 Package pdftex.def Info: Figures/Cover_Image_cut.png  used on input line 22.
@@ -748,6 +758,8 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 38.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )) [1
 
+\openout4 = `Thesis.ist'.
+
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc} <./Figures/IST_A_CMYK_POS.pdf> <./Figures/Cover_Image_cut.png>] [2
 
 ] (./Thesis_Declaration.tex [3]) [4
@@ -761,42 +773,53 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ] (./Thesis.toc [11
 
 ])
-\tf@toc=\write5
-\openout5 = `Thesis.toc'.
+\tf@toc=\write8
+\openout8 = `Thesis.toc'.
 
  [12] (./Thesis.lof
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <10> not available
 (Font)              Font shape `OT1/phv/m/sl' tried instead on input line 4.
 )
-\tf@lof=\write6
-\openout6 = `Thesis.lof'.
+\tf@lof=\write9
+\openout9 = `Thesis.lof'.
 
  [13
 
 
 ] [14
 
-]
-No file Thesis.nls.
-(./Thesis_Introduction.tex
+] (./Thesis.nls) (./Thesis.acr
+Underfull \hbox (badness 10000) in alignment at lines 2--18
+[] []
+ []
+
+) [15
+
+
+
+] [16
+
+] (./Thesis_Introduction.tex
 Chapter 1.
 [1
 
-
-]
-LaTeX Font Info:    Trying to load font information for TS1+phv on input line 49.
+] [2]
+LaTeX Font Info:    Trying to load font information for TS1+phv on input line 44.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1phv.fd
 File: ts1phv.fd 2020/03/25 scalable font definitions for TS1/phv.
-)) [2] (./Theoretical_Background.tex
-Chapter 2.
-[3
+)) [3
 
+] [4
+
+] (./Theoretical_Background.tex
+Chapter 2.
+[5
 
 ]
 Underfull \vbox (badness 5036) has occurred while \output is active []
 
- [4] [5]
-<Figures/Definitions_of_the_3+1_quantities.png, id=324, 437.83575pt x 277.63725pt>
+ [6] [7]
+<Figures/Definitions_of_the_3+1_quantities.png, id=372, 437.83575pt x 277.63725pt>
 File: Figures/Definitions_of_the_3+1_quantities.png Graphic file (type png)
 <use Figures/Definitions_of_the_3+1_quantities.png>
 Package pdftex.def Info: Figures/Definitions_of_the_3+1_quantities.png  used on input line 115.
@@ -804,42 +827,41 @@ Package pdftex.def Info: Figures/Definitions_of_the_3+1_quantities.png  used on 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [6 <./Figures/Definitions_of_the_3+1_quantities.png>] [7]
+ [8 <./Figures/Definitions_of_the_3+1_quantities.png>] [9]
 Overfull \hbox (1.74016pt too wide) detected at line 219
 []
  []
 
-[8]
+[10]
 Underfull \vbox (badness 7777) has occurred while \output is active []
 
- [9]
+ [11]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [10]) [11] [12
-
-] (./Numerical_Setup.tex
+ [12] [13]) [14] (./Numerical_Setup.tex
 Chapter 3.
-[13
+[15
+
 
 ]
-<Figures/Cubed_Ball.png, id=416, 698.00775pt x 401.0985pt>
+<Figures/Cubed_Ball.png, id=479, 698.00775pt x 401.0985pt>
 File: Figures/Cubed_Ball.png Graphic file (type png)
 <use Figures/Cubed_Ball.png>
 Package pdftex.def Info: Figures/Cubed_Ball.png  used on input line 46.
-(pdftex.def)             Requested size: 364.19667pt x 209.27625pt.
- [14 <./Figures/Cubed_Ball.png>]
-Underfull \vbox (badness 3525) has occurred while \output is active []
+(pdftex.def)             Requested size: 341.43307pt x 196.19724pt.
+ [16 <./Figures/Cubed_Ball.png>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [15] [16]
-<Figures/AMR.png, id=465, 654.0435pt x 522.15076pt>
+ [17] [18]
+<Figures/AMR.png, id=527, 654.0435pt x 522.15076pt>
 File: Figures/AMR.png Graphic file (type png)
 <use Figures/AMR.png>
 Package pdftex.def Info: Figures/AMR.png  used on input line 172.
 (pdftex.def)             Requested size: 227.62206pt x 181.71974pt.
-) [17] [18 <./Figures/AMR.png>] (./Thesis_Results.tex
+) [19] [20 <./Figures/AMR.png>] (./Thesis_Results.tex
 Chapter 4.
 
-LaTeX Warning: Reference `fig:hyp_speeds' on page 19 undefined on input line 27.
+LaTeX Warning: Reference `fig:hyp_speeds' on page 21 undefined on input line 27.
 
 
 LaTeX Warning: Command \c invalid in math mode on input line 35.
@@ -848,27 +870,29 @@ LaTeX Warning: Command \c invalid in math mode on input line 35.
 LaTeX Warning: Command \c invalid in math mode on input line 35.
 
 
-LaTeX Warning: Reference `fig:hyp_wave1' on page 19 undefined on input line 37.
+LaTeX Warning: Reference `fig:hyp_wave1' on page 21 undefined on input line 37.
 
 
-LaTeX Warning: Reference `fig:hyp_wave2' on page 19 undefined on input line 37.
+LaTeX Warning: Reference `fig:hyp_wave2' on page 21 undefined on input line 37.
 
 )
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [19
+ [21
 
 
-] [20] (./Thesis_Conclusions.tex
+] [22] (./Thesis_Conclusions.tex
 Chapter 5.
-) [21
+) [23
 
 
-] [22
+] [24
 
-] (./Thesis.bbl [23
+] (./Thesis.bbl [25
 
-]) [24] (./Thesis.aux)
+] [26]) [27] [28
+
+] (./Thesis.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
@@ -878,21 +902,21 @@ L3 programming layer <2024-01-22>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `Thesis.out' has not changed.
-(rerunfilecheck)             Checksum: E09328B91ABDD01D6E81F00D126F82ED;4736.
+(rerunfilecheck)             Checksum: 6A811C3A27BE06B98C57FF257644AF68;4821.
  ) 
 Here is how much of TeX's memory you used:
- 22723 strings out of 474222
- 393478 string characters out of 5748733
+ 22840 strings out of 474222
+ 396267 string characters out of 5748733
  1943975 words of memory out of 5000000
- 44390 multiletter control sequences out of 15000+600000
+ 44464 multiletter control sequences out of 15000+600000
  590157 words of font info for 91 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 115i,20n,136p,2428b,662s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on Thesis.pdf (38 pages, 1696106 bytes).
+ 115i,20n,136p,2428b,624s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
+Output written on Thesis.pdf (44 pages, 1717345 bytes).
 PDF statistics:
- 638 PDF objects out of 1000 (max. 8388607)
- 535 compressed objects within 6 object streams
- 148 named destinations out of 1000 (max. 500000)
- 258 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 748 PDF objects out of 1000 (max. 8388607)
+ 636 compressed objects within 7 object streams
+ 182 named destinations out of 1000 (max. 500000)
+ 266 words of extra memory for PDF output out of 10000 (max. 10000000)
 

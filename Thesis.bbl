@@ -1,4 +1,4 @@
-\begin{thebibliography}{13}
+\begin{thebibliography}{31}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -12,10 +12,139 @@ B.~P. Abbott, R.~Abbott, T.~D. Abbott, and et~al.
 \newblock \doi{10.1103/PhysRevLett.116.061102}.
 \newblock URL \url{https://link.aps.org/doi/10.1103/PhysRevLett.116.061102}.
 
-\bibitem[{Einstein Toolkit Consortium}(2025)]{einstein_toolkit_2025}
-{Einstein Toolkit Consortium}.
-\newblock The einstein toolkit, May 2025.
-\newblock URL \url{https://doi.org/10.5281/zenodo.15520463}.
+\bibitem[L{\"{o}}ffler et~al.(2012)L{\"{o}}ffler, Faber, Bentivegna, Bode, Diener, Haas, Hinder, Mundim, Ott, Schnetter, Allen, Campanelli, and Laguna]{einstein_toolkit_2025}
+F.~L{\"{o}}ffler, J.~Faber, E.~Bentivegna, T.~Bode, P.~Diener, R.~Haas, I.~Hinder, B.~C. Mundim, C.~D. Ott, E.~Schnetter, G.~Allen, M.~Campanelli, and P.~Laguna.
+\newblock {{T}he {E}instein {T}oolkit: {A} {C}ommunity {C}omputational {I}nfrastructure for {R}elativistic {A}strophysics}.
+\newblock \emph{Class. Quantum Grav.}, 29\penalty0 (11):\penalty0 115001, 2012.
+\newblock \doi{doi:10.1088/0264-9381/29/11/115001}.
+
+\bibitem[Rossetti and Vaño-Viñuales(2025)]{hypmath1}
+F.~Rossetti and A.~Vaño-Viñuales.
+\newblock Hyperboloidal approach for linear and non-linear wave equations in flrw spacetimes.
+\newblock \emph{General Relativity and Gravitation}, 57\penalty0 (5), May 2025.
+\newblock ISSN 1572-9532.
+\newblock \doi{10.1007/s10714-025-03409-x}.
+\newblock URL \url{http://dx.doi.org/10.1007/s10714-025-03409-x}.
+
+\bibitem[Vañó-Viñuales and Valente(2024)]{hypmath2}
+A.~Vañó-Viñuales and T.~Valente.
+\newblock Height-function-based 4d reference metrics for hyperboloidal evolution.
+\newblock \emph{General Relativity and Gravitation}, 56\penalty0 (11), Nov. 2024.
+\newblock ISSN 1572-9532.
+\newblock \doi{10.1007/s10714-024-03323-8}.
+\newblock URL \url{http://dx.doi.org/10.1007/s10714-024-03323-8}.
+
+\bibitem[Vañó-Viñuales(2024)]{hypmath3}
+A.~Vañó-Viñuales.
+\newblock Conformal diagrams for stationary and dynamical strong-field hyperboloidal slices.
+\newblock \emph{Classical and Quantum Gravity}, 41\penalty0 (10):\penalty0 105003, Apr. 2024.
+\newblock ISSN 1361-6382.
+\newblock \doi{10.1088/1361-6382/ad3aca}.
+\newblock URL \url{http://dx.doi.org/10.1088/1361-6382/ad3aca}.
+
+\bibitem[Hilditch et~al.(2016{\natexlab{a}})Hilditch, Harms, Bugner, Rueter, and Bruegmann]{hypmath4}
+D.~Hilditch, E.~Harms, M.~Bugner, H.~Rueter, and B.~Bruegmann.
+\newblock The evolution of hyperboloidal data with the dual foliation formalism: Mathematical analysis and wave equation tests, 2016{\natexlab{a}}.
+\newblock URL \url{https://arxiv.org/abs/1609.08949}.
+
+\bibitem[Zenginoğlu(2011)]{Hyperboloidal_layers_for_hyperbolic_equations_on_unbounded_domains}
+A.~Zenginoğlu.
+\newblock Hyperboloidal layers for hyperbolic equations on unbounded domains.
+\newblock \emph{Journal of Computational Physics}, 230\penalty0 (6):\penalty0 2286--2302, Mar. 2011.
+\newblock ISSN 0021-9991.
+\newblock \doi{10.1016/j.jcp.2010.12.016}.
+\newblock URL \url{http://dx.doi.org/10.1016/j.jcp.2010.12.016}.
+
+\bibitem[Hilditch(2015)]{Dual_Foliation_Formulations_of_General_Relativity}
+D.~Hilditch.
+\newblock Dual foliation formulations of general relativity, 2015.
+\newblock URL \url{https://arxiv.org/abs/1509.02071}.
+
+\bibitem[Peterson and Hilditch(2025)]{hypfinitediff1}
+C.~Peterson and D.~Hilditch.
+\newblock Strong hyperboloidal compactification for the spherical df-ghg formulation of gr, 2025.
+\newblock URL \url{https://arxiv.org/abs/2506.03078}.
+
+\bibitem[Álvares and Vaño-Viñuales(2025)]{hypfinitediff2}
+J.~D. Álvares and A.~Vaño-Viñuales.
+\newblock Free hyperboloidal evolution of the einstein-maxwell-klein-gordon system, 2025.
+\newblock URL \url{https://arxiv.org/abs/2505.17176}.
+
+\bibitem[Peterson et~al.(2024)Peterson, Gautam, Vañó-Viñuales, and Hilditch]{hypfinitediff3}
+C.~Peterson, S.~Gautam, A.~Vañó-Viñuales, and D.~Hilditch.
+\newblock Spherical evolution of the generalized harmonic gauge formulation of general relativity on compactified hyperboloidal slices, 2024.
+\newblock URL \url{https://arxiv.org/abs/2409.02994}.
+
+\bibitem[Vañó-Viñuales(2023)]{hypfinitediff4}
+A.~Vañó-Viñuales.
+\newblock Spherically symmetric black hole spacetimes on hyperboloidal slices.
+\newblock \emph{Frontiers in Applied Mathematics and Statistics}, 9, Aug. 2023.
+\newblock ISSN 2297-4687.
+\newblock \doi{10.3389/fams.2023.1206017}.
+\newblock URL \url{http://dx.doi.org/10.3389/fams.2023.1206017}.
+
+\bibitem[Peterson et~al.(2023)Peterson, Gautam, Rainho, Vañó-Viñuales, and Hilditch]{hypfinitediff5}
+C.~Peterson, S.~Gautam, I.~Rainho, A.~Vañó-Viñuales, and D.~Hilditch.
+\newblock 3d evolution of a good-bad-ugly-f model on compactified hyperboloidal slices, 2023.
+\newblock URL \url{https://arxiv.org/abs/2303.16190}.
+
+\bibitem[Gautam et~al.(2021)Gautam, Vañó-Viñuales, Hilditch, and Bose]{hypfinitediff6}
+S.~Gautam, A.~Vañó-Viñuales, D.~Hilditch, and S.~Bose.
+\newblock Summation by parts and truncation error matching on hyperboloidal slices.
+\newblock \emph{Physical Review D}, 103\penalty0 (8), Apr. 2021.
+\newblock ISSN 2470-0029.
+\newblock \doi{10.1103/physrevd.103.084045}.
+\newblock URL \url{http://dx.doi.org/10.1103/PhysRevD.103.084045}.
+
+\bibitem[Gasperín et~al.(2020)Gasperín, Gautam, Hilditch, and Vañó-Viñuales]{hypfinitediff7}
+E.~Gasperín, S.~Gautam, D.~Hilditch, and A.~Vañó-Viñuales.
+\newblock The hyperboloidal numerical evolution of a good-bad-ugly wave equation.
+\newblock \emph{Classical and Quantum Gravity}, 37\penalty0 (3):\penalty0 035006, Jan. 2020.
+\newblock ISSN 1361-6382.
+\newblock \doi{10.1088/1361-6382/ab5f21}.
+\newblock URL \url{http://dx.doi.org/10.1088/1361-6382/ab5f21}.
+
+\bibitem[Hilditch et~al.(2016{\natexlab{b}})Hilditch, Harms, Bugner, Rueter, and Bruegmann]{The_evolution_of_hyperboloidal_data_with_the_dual_foliation_formalism_Mathematical_analysis_and_wave_equation_tests}
+D.~Hilditch, E.~Harms, M.~Bugner, H.~Rueter, and B.~Bruegmann.
+\newblock The evolution of hyperboloidal data with the dual foliation formalism: Mathematical analysis and wave equation tests, 2016{\natexlab{b}}.
+\newblock URL \url{https://arxiv.org/abs/1609.08949}.
+
+\bibitem[Bizoń and Zenginoğlu(2009)]{Universality_of_global_dynamics_for_the_cubic_wave_equation}
+P.~Bizoń and A.~Zenginoğlu.
+\newblock Universality of global dynamics for the cubic wave equation.
+\newblock \emph{Nonlinearity}, 22\penalty0 (10):\penalty0 2473--2485, Sept. 2009.
+\newblock ISSN 1361-6544.
+\newblock \doi{10.1088/0951-7715/22/10/009}.
+\newblock URL \url{http://dx.doi.org/10.1088/0951-7715/22/10/009}.
+
+\bibitem[Shatah and Struwe(1994)]{global_well-posedness}
+J.~Shatah and M.~Struwe.
+\newblock Well-posedness in the energy space for semilinear wave equations with critical growth.
+\newblock \emph{International Mathematics Research Notices}, 1994\penalty0 (7):\penalty0 303--309, 04 1994.
+\newblock ISSN 1073-7928.
+\newblock \doi{10.1155/S1073792894000346}.
+\newblock URL \url{https://doi.org/10.1155/S1073792894000346}.
+
+\bibitem[Strichartz(1977)]{Strichartz_estimates}
+R.~S. Strichartz.
+\newblock {Restrictions of Fourier transforms to quadratic surfaces and decay of solutions of wave equations}.
+\newblock \emph{Duke Mathematical Journal}, 44\penalty0 (3):\penalty0 705 -- 714, 1977.
+\newblock \doi{10.1215/S0012-7094-77-04430-1}.
+\newblock URL \url{https://doi.org/10.1215/S0012-7094-77-04430-1}.
+
+\bibitem[Morawetz and Strauss(1972)]{Morawetz_inequality}
+C.~S. Morawetz and W.~A. Strauss.
+\newblock Decay and scattering of solutions of a nonlinear relativistic wave equation.
+\newblock \emph{Comm. Pure Appl. Math.}, 25:\penalty0 1--31, 1972.
+\newblock ISSN 0010-3640.
+\newblock \doi{10.1002/cpa.3160250103}.
+\newblock MR:303097. Zbl:0228.35055.
+
+\bibitem[Bahouri and Shatah(1998)]{profile_decomposition}
+H.~Bahouri and J.~Shatah.
+\newblock Decay estimates for the critical semilinear wave equation.
+\newblock \emph{Annales de l'I.H.P. Analyse non lin\'eaire}, 15\penalty0 (6):\penalty0 783--789, 1998.
+\newblock URL \url{https://www.numdam.org/item/AIHPC_1998__15_6_783_0/}.
 
 \bibitem[HILDITCH(2013)]{AN_INTRODUCTION_TO_WELLPOSEDNESS_AND_FREEEVOLUTION}
 D.~HILDITCH.
@@ -43,19 +172,6 @@ T.~W. Baumgarte and S.~L. Shapiro.
 \newblock Cambridge University Press, 2010.
 \newblock \doi{10.1017/CBO9781139193344}.
 
-\bibitem[Zenginoğlu(2011)]{Hyperboloidal_layers_for_hyperbolic_equations_on_unbounded_domains}
-A.~Zenginoğlu.
-\newblock Hyperboloidal layers for hyperbolic equations on unbounded domains.
-\newblock \emph{Journal of Computational Physics}, 230\penalty0 (6):\penalty0 2286--2302, Mar. 2011.
-\newblock ISSN 0021-9991.
-\newblock \doi{10.1016/j.jcp.2010.12.016}.
-\newblock URL \url{http://dx.doi.org/10.1016/j.jcp.2010.12.016}.
-
-\bibitem[Hilditch et~al.(2016{\natexlab{a}})Hilditch, Harms, Bugner, Rueter, and Bruegmann]{The_evolution_of_hyperboloidal_data_with_the_dual_foliation_formalism_Mathematical_analysis_and_wave_equation_tests}
-D.~Hilditch, E.~Harms, M.~Bugner, H.~Rueter, and B.~Bruegmann.
-\newblock The evolution of hyperboloidal data with the dual foliation formalism: Mathematical analysis and wave equation tests, 2016{\natexlab{a}}.
-\newblock URL \url{https://arxiv.org/abs/1609.08949}.
-
 \bibitem[Wald(1984)]{wald:1984}
 R.~M. Wald.
 \newblock \emph{{General Relativity}}.
@@ -69,10 +185,15 @@ L.~Lindblom, M.~A. Scheel, L.~E. Kidder, R.~Owen, and O.~Rinne.
 \newblock \doi{10.1088/0264-9381/23/16/s09}.
 \newblock URL \url{http://dx.doi.org/10.1088/0264-9381/23/16/S09}.
 
-\bibitem[Hilditch et~al.(2016{\natexlab{b}})Hilditch, Weyhausen, and Brügmann]{Pseudospectral_method_for_gravitational_wave_collapse}
+\bibitem[Rinne(2025)]{A_hyperboloidal_method_for_numerical_simulations_of_multidimensional_nonlinear_wave_equations}
+O.~Rinne.
+\newblock A hyperboloidal method for numerical simulations of multidimensional nonlinear wave equations, 2025.
+\newblock URL \url{https://arxiv.org/abs/2507.00674}.
+
+\bibitem[Hilditch et~al.(2016{\natexlab{c}})Hilditch, Weyhausen, and Brügmann]{Pseudospectral_method_for_gravitational_wave_collapse}
 D.~Hilditch, A.~Weyhausen, and B.~Brügmann.
 \newblock Pseudospectral method for gravitational wave collapse.
-\newblock \emph{Physical Review D}, 93\penalty0 (6), Mar. 2016{\natexlab{b}}.
+\newblock \emph{Physical Review D}, 93\penalty0 (6), Mar. 2016{\natexlab{c}}.
 \newblock ISSN 2470-0029.
 \newblock \doi{10.1103/physrevd.93.063006}.
 \newblock URL \url{http://dx.doi.org/10.1103/PhysRevD.93.063006}.

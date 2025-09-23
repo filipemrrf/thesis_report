@@ -372,3 +372,55 @@ with the respective characteristic speeds being
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{The Cubic Wave Equation}
 \label{section:cubic_wave_equation}
+
+Let us now consider a semilinear wave equation with a cubic nonlinearity, also known as the cubic wave equation, given by
+%
+\begin{align}
+    \Box_g \Psi - \Psi^3 = 0 \, .
+    \label{eq:cubic_wave_equation_simple}
+\end{align}
+%
+This equation is an interesting object of study in modern \acrshort{pde} theory due to its rich dynamics, which are characterized by the competition between the dispersive nature of the wave operator and the focusing effect of the cubic nonlinearity. This competition gives rise to a variety of phenomena, including global existence of solutions, finite-time blow-up, and scattering \cite{Universality_of_global_dynamics_for_the_cubic_wave_equation,A_hyperboloidal_method_for_numerical_simulations_of_multidimensional_nonlinear_wave_equations}. 
+
+It is known that, for small initial data, the dispersive nature of the wave operator dominates, leading to the global existence of solutions which decay as $t^{-2}$ near timelike infinity and as $t^{-1}$ along null infinity. However, for large initial data, the focusing effect of the cubic nonlinearity can lead to the blowup of solutions with a rate of $\sqrt{2}/(T-t)$ at the origin \cite{Universality_of_global_dynamics_for_the_cubic_wave_equation}.
+
+Another point of interest of this equation is a two-parameter family of solutions 
+%
+\begin{align}
+    \psi_{(a, b)}(T, R) = \frac{\sqrt{2}}{T + a + b \left( (T+ a)^2 - R^2 \right)} \, ,
+\end{align}
+%
+which can be obtained by solving equation \eqref{eq:cubic_wave_equation_simple} while neglecting the spatial derivatives,
+obtaining the one-parameter family of solutions
+%
+\begin{align}
+    \psi_{b}(T) = \frac{\sqrt{2}}{T - b}
+\end{align}
+%
+and then applying a conformal inversion 
+%
+\begin{align}
+    \psi(T,R) \rightarrow \frac{1}{T^2 - R^2} \, \psi\left(\frac{T}{T^2 - R^2}, \frac{R}{T^2 - R^2}\right)
+\end{align}
+%
+followed by a time translation
+%
+\begin{align}
+    \psi(T,R) \rightarrow \psi(T + a, R) \, .
+\end{align}
+%
+It is also conjectured that for any generic globally regular solution $\psi(T, R)$ there exist parameters $(a,b) \in \mathbb{R} \times \mathbb{R}^{+} $ and $\kappa = \pm 1$ such that $t^4 \left(\psi(T, R) - \kappa \psi_{(a, b)}(T, R) \right)$ is bounded for all finite $r$ and $t \to \infty$ \cite{Universality_of_global_dynamics_for_the_cubic_wave_equation}.
+
+To study this equation numerically, we can set the source term $S$~in equation \eqref{eq:wave_equation_constraint_violation} to be $S = \Psi^3 = \Omega^3 \psi^3$~, obtaining 
+%
+\begin{align}
+    \begin{cases}
+        \partial_t \tilde{\psi} = - \tilde{\alpha} \tilde{\Pi} + \beta^i \tilde{\phi}_i + (1 + \gamma_1) \beta^i (\tilde{D}_i \tilde{\psi} - \tilde{\phi}_i) \\
+        \partial_t \tilde{\phi}_i = - \tilde{\alpha} (\tilde{D}_i \tilde{\Pi}) - (\tilde{D}_i \tilde{\alpha}) \tilde{\Pi} + \beta^j \partial_j \tilde{\phi}_i + \tilde{\phi}_j \partial_i \beta^j + \gamma_2 \tilde{\alpha} (\tilde{D}_i \tilde{\psi} - \tilde{\phi}_i) \\
+        \partial_t \tilde{\Pi} = - \tilde{\alpha} \tilde{a}^i \tilde{\phi}_i - \tilde{\alpha} \tilde{\gamma}^{ij} \tilde{D}_j \tilde{\phi}_i + \tilde{\alpha} \tilde{K} \tilde{\Pi} + \beta^i \tilde{D}_i \tilde{\Pi} \\
+        \hspace{3.5em} - \tilde{\alpha} \Omega^{-1} \Big( \tilde{g}^{ab} \tilde{\nabla}_a \tilde{\nabla}_b \Omega - 2 \Omega^{-1} \tilde{g}^{ab} \tilde{\nabla}_a \Omega \tilde{\nabla}_b \Omega \Big) \tilde{\psi} + \tilde{\alpha} \psi^3 + \gamma_3 \beta^i (\tilde{D}_i \tilde{\psi} - \tilde{\phi}_i)
+    \end{cases}\,.
+    \label{eq:cubic_wave_equation_constraint_violation}
+\end{align}
+%
+This modification does not change the characteristic structure of our system, so the characteristic variables and their respective speeds remain the same as in the linear case.

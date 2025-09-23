@@ -16,11 +16,11 @@
 \section{Motivation}
 \label{section:motivation}
 
-Gravitational waves have been in the minds of physicists since Albert Einstein first predicted their existence in 1916 as perturbations in the curvature of spacetime that propagate at the speed of light. However, it was not until nearly a century later, in 2015, that the Laser Interferometer Gravitational-Wave Observatory (LIGO) made the first direct detection of this fascinating phenomenon \cite{PhysRevLett.116.061102}. This groundbreaking observation not only confirmed a key prediction of Einstein's general theory of relativity but also inaugurated the field of gravitational-wave astronomy, opening an entirely new window through which to observe and understand the universe.
+Gravitational waves have been in the minds of physicists since Albert Einstein first predicted their existence in 1916 as perturbations in the curvature of spacetime that propagate at the speed of light. However, it was not until nearly a century later, in 2015, that the \acrfull{ligo} made the first direct detection of this fascinating phenomenon \cite{PhysRevLett.116.061102}. This groundbreaking observation not only confirmed a key prediction of Einstein's general theory of relativity but also inaugurated the field of gravitational-wave astronomy, opening an entirely new window through which to observe and understand the universe.
 
 Gravitational waves immediately caught the attention of the scientific community due to their unique interaction with matter. Unlike electromagnetic waves, which can be absorbed, scattered, or reprocessed by intervening media, gravitational waves propagate essentially unimpeded from their astrophysical sources to Earth. This property allows them to carry direct information about highly energetic and compact systems, including binary black hole mergers, neutron star collisions, and potentially processes in the early universe that are otherwise inaccessible to conventional astronomical methods.
 
-Even though this new method of observation opens the door to a wealth of scientific opportunities, it also presents significant challenges. The signals detected by LIGO and other gravitational wave observatories are incredibly weak by the time they reach Earth, necessitating extremely sensitive detectors and sophisticated data analysis techniques to extract meaningful information from the noise. In order to interpret these signals accurately, it is crucial to have precise theoretical models of the gravitational waveforms produced by various astrophysical events. This is where numerical relativity comes into play, providing the tools to simulate the complex dynamics of spacetime and matter under extreme conditions. However, given the distance of Earth from the sources of gravitational waves, to predict the signals that detectors will observe, we must be able to extract the gravitational waves at null infinity, which is a significant challenge in itself. 
+Even though this new method of observation opens the door to a wealth of scientific opportunities, it also presents significant challenges. The signals detected by \acrshort{ligo} and other gravitational wave observatories are incredibly weak by the time they reach Earth, necessitating extremely sensitive detectors and sophisticated data analysis techniques to extract meaningful information from the noise. In order to interpret these signals accurately, it is crucial to have precise theoretical models of the gravitational waveforms produced by various astrophysical events. This is where numerical relativity comes into play, providing the tools to simulate the complex dynamics of spacetime and matter under extreme conditions. However, given the distance of Earth from the sources of gravitational waves, to predict the signals that detectors will observe, we must be able to extract the gravitational waves at null infinity, which is a significant challenge in itself. 
 
 State-of-the-art numerical relativity codes, such as the Einstein Toolkit \cite{einstein_toolkit_2025}, do not have this capability built in, working around this issue by calculating the wave front at different radii and then extrapolating the results until future null infinity, which naturally comes at the cost of some amount of systematic error on the results. In this work, we present an alternative to the current methodology by evolving toy models for gravitational waves in a compactified spacetime, thereby bypassing the need for extrapolation.
 
@@ -29,16 +29,11 @@ State-of-the-art numerical relativity codes, such as the Einstein Toolkit \cite{
 \section{Topic Overview}
 \label{section:overview}
 
-- Anil proposed hyp layers
+In a quest to upgrade the current state-of-the-art numerical relativity codes, which can only solve spherically symmetric models of General Relativity, to a full 3D code compatible with hyperboloidal layers, some work has been done. While some authors focus on the development of the mathematical tools required to evolve \acrfull{pde} systems on hyperboloidal layers \cite{hypmath1,hypmath2,hypmath3,hypmath4,Hyperboloidal_layers_for_hyperbolic_equations_on_unbounded_domains,Dual_Foliation_Formulations_of_General_Relativity}, others work on its implementation both in finite difference codes \cite{hypfinitediff1,hypfinitediff2,hypfinitediff3,hypfinitediff4,hypfinitediff5,hypfinitediff6,hypfinitediff7} and in spectral ones \cite{The_evolution_of_hyperboloidal_data_with_the_dual_foliation_formalism_Mathematical_analysis_and_wave_equation_tests} using different models for the creation and propagation of gravitational waves. Continuing this line of research, this thesis focuses on solving the wave equation and the cubic wave equation in hyperboloidal slices and hyperboloidal layers using spectral methods in full 3D with \acrfull{amr}. The wave equation serves as a toy model for gravitational waves, allowing us to test and validate our numerical methods in a simpler context before tackling the more complex equations of General Relativity. 
 
-- Some work was done by Christian / David / Alex / Anil
+The cubic wave equation, on the other hand, introduces non-linearities that are more representative of the challenges faced in simulating realistic astrophysical scenarios. Apart from being a toy model for gravitational waves, the cubic wave equation is also an object of great interest in PDE theory. This interest comes from the fact that the cubic wave equation is one of the simplest semilinear wave equations with a nonlinear source term. The cubic nonlinearity is weak enough to allow global analysis but strong enough to produce rich dynamics, which come from the conflict between the Laplacian, which disperses the solution, and the nonlinearity, which concentrates it \cite{Universality_of_global_dynamics_for_the_cubic_wave_equation}. The study of this type of critical semilinear wave equations has led to significant insights into the behavior of nonlinear \acrshort{pde}'s, leading to major results regarding global well-posedness \cite{global_well-posedness} and the development of mathematical tools like \textit{Strichartz estimates} \cite{Strichartz_estimates}, \textit{Morawetz inequalities} \cite{Morawetz_inequality}, and \textit{profile decompositions} \cite{profile_decomposition}, which are now standard in dispersive PDE analysis. To advance our understanding of this equation, we will utilize our numerical solutions to investigate the blowup rate of the cubic wave equation, its late-time decay rates, and its convergence towards an attractor solution, comparing our results with theoretical predictions from modern \acrshort{pde} theory. Our work is particularly relevant since there are very few numerical codes that can solve the cubic wave equation in full 3D with \acrshort{amr}, and none that we know of that can do it in hyperboloidal slices or hyperboloidal layers using spectral methods. This makes our code a valuable tool for both the numerical relativity and PDE theory communities.
 
-- I continue to try and bridge the gap by implementing a toy model for gravitational waves in a compactified spacetime in full 3D
-
-- It may also be important toward developing PDE theory since it is one of the few PDE solver that is spectral full 3d and with AMR for the cubic wave equation
-
-- mention objectives and their importance
-
+\clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Objectives and Deliverables}
 \label{section:objectives}
@@ -46,17 +41,17 @@ State-of-the-art numerical relativity codes, such as the Einstein Toolkit \cite{
 Throughout this work, we aim to:
 
 \begin{itemize}
-    \item Solve the wave equation in hyperboloidal slices using spectral methods in full 3D with Adaptive Mesh Refinement (AMR);
+    \item Solve the wave equation in hyperboloidal slices using spectral methods in full 3D with \acrshort{amr};
     
-    \item Solve the wave equation in hyperboloidal layers using spectral methods in full 3D with AMR;
+    \item Solve the wave equation in hyperboloidal layers using spectral methods in full 3D with \acrshort{amr};
     
-    \item Solve the wave cubic equation in hyperboloidal layers using spectral methods in full 3D with AMR;
+    \item Solve the wave cubic equation in hyperboloidal layers using spectral methods in full 3D with \acrshort{amr};
 
-    \item Study the blowup rate of the cubic wave equation and compare with theoretical predictions given by modern Partial Differential Equations (PDE) theory;
+    \item Study the blowup rate of the cubic wave equation and compare with theoretical predictions given by modern \acrshort{pde} theory;
 
-    \item Study the late time decay rates of the cubic wave equation and compare with theoretical predictions given by modern PDE theory;
+    \item Study the late-time decay rates of the cubic wave equation and compare with theoretical predictions given by modern \acrshort{pde} theory;
     
-    \item Study the convergence of the numerical solutions to the cubic wave equation towards an attractor solution, as predicted by modern PDE theory.
+    \item Study the convergence of the numerical solutions to the cubic wave equation towards an attractor solution, as predicted by modern \acrshort{pde} theory.
 \end{itemize}
 
 
@@ -64,4 +59,14 @@ Throughout this work, we aim to:
 \section{Thesis Outline}
 \label{section:outline}
 
-Briefly explain the contents of each chapter.
+This thesis is structured as follows:
+
+\begin{itemize}
+    \item In chapter \ref{chapter:background}, we introduce the necessary theoretical background to fully understand our work. We start by proving what makes a Cauchy problem in a system of PDE's well-posed and then follow with a revision of the 3+1 decomposition of spacetime. We then discuss hyperboloidal slices and hyperboloidal layers, including their construction and properties. Finally, we introduce the wave equation and the cubic wave equation, transforming them into their hyperboloidal form and highlighting some of their key features.
+    
+    \item In chapter \ref{chapter:numerical_setup}, we describe some implementation details of \texttt{bamps}. We discuss the discretization method employed by the code, including the grid structure, the basis functions, and the collocation points. We then present the filtering method used to stabilize the numerical solution. We follow by describing how the different patches are connected using boundary conditions. Finally, we describe the \acrshort{amr} strategy used by the code.
+    
+    \item In chapter \ref{chapter:results}, we present the results of our simulations. We start by showing the solutions to the wave equation in hyperboloidal slices and layers. We then present our results for the cubic wave equation, including analysis of blowup rates, late-time decay rates, and convergence towards attractor solutions, comparing our numerical results with theoretical predictions.
+    
+    \item Finally, in chapter \ref{chapter:conclusions}, we summarize our results, discuss their implications for both numerical relativity and \acrshort{pde} theory, and outline potential directions for future research.
+\end{itemize}

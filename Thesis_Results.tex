@@ -11,7 +11,7 @@
 \chapter{Results}
 \label{chapter:results}
 
-Insert your chapter material here.
+In this chapter, we will show the results of our numerical simulations. First, we show our evolution of the wave equation in hyperboloidal slices and show that it is correct by using d'Alembert's formula as a benchmark. We then show the evolution of the wave equation in hyperboloidal layers.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -21,27 +21,108 @@ Insert your chapter material here.
 The first step towards our goal is to implement the wave equation from equation \eqref{eq:wave_equation_3+1} in hyperboloidal slices. We will construct our hyperboloidal slices using 
 %
 \begin{align}
-    H(R) = \frac{2 R^2 + s^2 - \sqrt{4 R^2 s^2 + s^4}}{2 \sqrt{R^2 + 1}} \,, \quad \quad \quad \Omega(r) = 1 - \frac{r^2}{s^2} \,,
+    H(R) = \frac{2 R^2 + s^2 - \sqrt{4 R^2 s^2 + s^4}}{2 R} \,, \quad \quad \quad \Omega(r) = 1 - \frac{r^2}{s^2} \,,
+    \label{eq:hyp_coordinates}
 \end{align}
 %
-as heigh and compress functions respectively, where $s$ is a free parameter that controls where null infinity is located. The details of this construction were discussed in section \ref{section:compactification}. This particular choice of heigh and compress functions is of particular interest since it leads to a constant outgoing characteristic speed, which has the advantage of keeping the shape of the waves as they propagate \cite{Hyperboloidal_layers_for_hyperbolic_equations_on_unbounded_domains,The_evolution_of_hyperboloidal_data_with_the_dual_foliation_formalism_Mathematical_analysis_and_wave_equation_tests}. This, however comes with the disadvantage of having an incoming characteristic speed that goes to zero as we approach null infinity. This is an acceptable trade-off since we are not expecting incoming waves in our setup. In figure \ref{fig:hyp_speeds} we can see how the incoming and outgoing light speeds vary along our computational domain.
+as heigh and compress functions respectively, where $s$ is a free parameter that controls where null infinity is located. The details of this construction were discussed in section \ref{section:compactification}. This particular choice of height and compress functions is of particular interest since it leads to a constant outgoing characteristic speed, which has the advantage of keeping the shape of the waves as they propagate \cite{Hyperboloidal_layers_for_hyperbolic_equations_on_unbounded_domains,The_evolution_of_hyperboloidal_data_with_the_dual_foliation_formalism_Mathematical_analysis_and_wave_equation_tests}. This, however comes with the disadvantage of having an incoming characteristic speed that goes to zero as we approach null infinity. This is an acceptable trade-off since we are not expecting incoming waves in our setup. In figure \ref{fig:hyp_speeds} we can see how the incoming and outgoing light speeds vary along our computational domain.
 
-\textcolor{red}{INSERT FIGURE WITH SPEEDS HERE}
+\begin{figure}[t!]
+\centering
+\includegraphics[width=0.6\textwidth]{Figures/hyp_slices_speeds.png}
+\caption{Outgoing and incoming characteristic speeds in hyperboloidal slices. The outgoing speed is constant, while the incoming speed approaches zero as we approach null infinity.}
+\label{fig:hyp_speeds}
+\end{figure}
 
-Giving the initial conditions 
+To validate our implementation, we evolved the initial conditions
 %
 \begin{align}
-    sjdjfçlsdg
+    \psi(r) = , \quad \Pi(r) = 0 \, , \quad \phi_x(r) =  \, ,
 \end{align}
 %
-and setting $s = 30$, we obtain the evolution shown in figures \ref{fig:hyp_wave1} and \ref{fig:hyp_wave2}, which satisfies the 
+and similarly for $\phi_y$ and $\phi_z$, while setting $A = 1$, $r_0 = 0$, $\sigma = 1$, $\gamma_1 = -1$, $\gamma_2 = 4$ and $s = 30$, and compared the resulting numerical solution with the analytical solution derived from d'Alembert's formula \cite{}. The full numerical evolution is shown in figures \ref{fig:hyp_wave1} and \ref{fig:hyp_wave2}. Additionally, figure \ref{} presents snapshots comparing both the numerical and analytical solutions, demonstrating strong agreement between them. Owing to the spherical symmetry of the initial conditions, we reduced the computational cost by employing the one-dimensional reduction available in \texttt{bamps}.
+
+- evolution heat map + 2d snapshot
+
+We can verify the validity of this results by performing several runs with increasing resolution and verifying that the violation of the reduction constraint $B_i$ decreases with increasing resolution. We can see that expected decrease in figure \ref{fig:hyp_wave_convergence}, meaning that our code gives a reliable numerical solution, approaching the exact solution as we increase resolution. On the left, we increase the number of points in each grid in a way that lets us increase the order of the Chebyshev polynomials by 2 in each consecutive run, while keeping the number of grids constant. We will refer to this type of convergence as \textit{p convergence}. On the right, we double the number of grids in each consecutive run, keeping the number of points in each individual grid constant as well as the order of the Chebyshev polynomials used in the evolution. We will refer to this type of convergence as \textit{h convergence}.
+
+\begin{figure}[t!]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Figures/hyp_wave-p_convergence.png}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Figures/hyp_wave-h_convergence.png}
+    \end{minipage}
+    \caption{Evolution of the norm of the reduction constraint $B_i$ over the numerical evolution. On the left, we can observe the p convergence of the constraint while on the right we can observe the h convergence.}
+    \label{fig:hyp_wave_convergence}
+\end{figure}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Wave Equation in Hyperboloidal Layers}
 \label{section:hyp_layers_wave}
 
+The next step on our journey is to implement the wave equation using hyperboloidal layers. We will construct the layers using 
+%
+\begin{align}
+    \Omega(x) = 
+    \begin{cases} 
+        0 & \text{if } r \leq R_i \\
+        \chi(r) \Omega_0 (r) & \text{if } R_i < r \leq R_i + T_l \\
+        \Omega_0 (r) & \text{if } r > R_i + T_l
+    \end{cases} \, ,
+\end{align}
+%
+where $\Omega_0 (r)$ is the compress function of equation \eqref{eq:hyp_coordinates} and $\chi(r)$ is a transition function given by
+%
+\begin{align}
+    \chi(r) = \frac{(r - R_i)^4 \left( -20 (r - R_i)^3 + 70 (r - R_i)^2 T_l - 84 (r - R_i) T_l^2 + 35 T_l^3 \right)}{T_l^7} \, .
+\end{align}
+%
+The height function can be constructed from this compress function using
+%
+\begin{align}
+    H'(r) = 1 - \left( \partial_r \left( r \, \Omega(x)^{-1}\right) \right)^{-1} \, .
+\end{align}
+%
+This choice of height and compress functions leads to the characteristic speeds shown in figure \ref{}. 
 
+- incoming speeds
+
+Using this configuration and choosing
+%
+\begin{align}
+    \psi(r) = A \left( e^{-\left(\frac{r - r_0}{\sigma}\right)^2} + e^{-\left(\frac{r + r_0}{\sigma}\right)^2} \right) \, , \quad \Pi(r) = 0 \, , \quad \phi_x(r) = - 2 A \frac{x}{r} \left(\frac{r - r_0}{\sigma^2} e^{-\left(\frac{r - r_0}{\sigma}\right)^2} + \frac{r + r_0}{\sigma^2} e^{-\left(\frac{r + r_0}{\sigma}\right)^2} \right) \, ,
+\end{align}
+%
+and similarly for $\phi_y$ and $\phi_z$, while setting $A = 1$, $r_0 = 0$, $\sigma = 1$, $\gamma_1 = -1$, $\gamma_2 = 4$ and $s = 30$, as our initial conditions, we obtain the evolution represented in figures \ref{} and \ref{}. The h and p convergence for this setup can be found on figures \ref{} and \ref{} respectively, where we can observe that the constraint violation decreases with increasing resolution. In this configuration, due to the complexity of the expressions on the transition layer, it is not possible to use the d'Alembert formula to validade our results. However we can validate them by chosing $R_i = 0$ which reduces the hyperboloidal layers back to hyperboloidal slices. Doing so gives the same results to the ones presented in section \ref{section:hyp_wave}.
+
+- evolution heat map + 2d snapshot
+- h and p convergence
+
+
+The principal reason to use hyperboloidal layers is the existence of a flat layer when $0 \leq r \leq R_i$. This flat layer allows for the choice of initial conditions with incoming pulses, as long as those are included on the flat region. Thus, we can further test our code by providing the axis-symmetric initial conditions
+%
+\begin{align}
+    \psi(r) &= A \left( e^{-\frac{(r - r_0)^2}{\sigma^2}} + e^{-\frac{(r + r_0)^2}{\sigma^2}} \right) \nonumber \\ 
+    &\quad + A_{pert} e^{-\frac{(z - z_{0})^2}{\sigma_{pert}^2}} \left( e^{-\frac{(\rho - \rho_{0})^2}{\sigma_{pert}^2}} + e^{-\frac{(\rho + \rho_{0})^2}{\sigma_{pert}^2}} \right) \rho^2 \, , \\
+    \Pi(r) &= 0 \, , \\
+    \phi_x(r) &= -\frac{2 A e^{-\frac{(r + r_0)^2}{\sigma^2}} \left( r + e^{\frac{4 r r_0}{\sigma^2}}(r - r_0) + r_0 \right) x}{r \sigma^2} \nonumber \\
+    &\quad + \frac{2 A_{pert} e^{-\frac{( \rho + \rho_{0} )^2 + ( z - z_{0} )^2}{\sigma_{pert}^2}} \left[ \sigma_{pert}^2 - \rho(\rho + \rho_{0}) + e^{\frac{4 \rho \rho_{0}}{\sigma_{pert}^2}} ( \rho( \rho_{0} - \rho ) + \sigma_{pert}^2 ) \right] x}{\sigma_{pert}^2} \, , \\
+    \phi_y(r) &= -\frac{2 A e^{-\frac{(r + r_0)^2}{\sigma^2}} \left( r + e^{\frac{4 r r_0}{\sigma^2}}(r - r_0) + r_0 \right) y}{r \sigma^2} \nonumber \\
+    &\quad + \frac{2 A_{pert} e^{-\frac{( \rho + \rho_{0} )^2 + ( z - z_{0} )^2}{\sigma_{pert}^2}} \left[ \sigma_{pert}^2 - \rho(\rho + \rho_{0}) + e^{\frac{4 \rho \rho_{0}}{\sigma_{pert}^2}} ( \rho( \rho_{0} - \rho ) + \sigma_{pert}^2 ) \right] y}{\sigma_{pert}^2} \, , \\
+    \phi_z(r) &= \frac{e^{-\frac{(r + r_0)^2}{\sigma^2}} \left( -2 A e^{\frac{4 r r_0}{\sigma^2}}(r - r_0) z - 2 A (r + r_0) z \right)}{r \sigma^2} \nonumber \\
+    &\quad - \frac{2 A_{pert} e^{-\frac{(z - z_{0})^2}{\sigma_{pert}^2}} \left( e^{-\frac{(\rho - \rho_{0})^2}{\sigma_{pert}^2}} + e^{-\frac{(\rho + \rho_{0})^2}{\sigma_{pert}^2}} \right) \rho^2 (z - z_{0})}{\sigma_{pert}^2} \, ,
+\end{align}
+%
+while setting $A = 1$, $r_0 = 0$, $\sigma = 1$, $A_{pert} = 0.01$, $\rho_0 = 5$, $\sigma_{pert} = 0.1$, $z_0 = 0$ and $s = 30$, and performing a numerical evolution using 2 dimensional reduction. That evolution gives the results in figures \ref{} and \ref{}. Despite the loss of spherical symmetry, our code still gives great results, as can be seen through the p and h convergence represented in figures \ref{} and \ref{} respectively.
+
+- evolution heat map + 2d snapshot
+- h and p convergence
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

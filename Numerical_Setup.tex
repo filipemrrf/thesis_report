@@ -19,7 +19,7 @@ In this chapter, we will describe the numerical setup of the \texttt{bamps} code
 
 The \texttt{bamps} code uses a multi-patch grid setup to cover the computational domain. Even though \texttt{bamps} is capable of supporting both a cubed-ball grid and a cubed-sphere grid, in this work we will only use the cubed-ball grid. The grid is composed of several patches which are shaped like deformed cubes that fit together to cover the domain. Each patch is mapped by two different coordinate systems: the local patch coordinates $(\bar{x},\bar{y},\bar{z})$ and the global Cartesian coordinates $(x,y,z)$.
 
-The cubed-ball grid consists of a central cube surrounded by six deformed cube patches that form a spherical shell around the central cube forming a transition shell, which is itself surrounded by six more deformed cube patches that form the outer spherical shell. In the central cube, the local patch coordinates and the global Cartesian coordinates are identical, i.e., $(\bar{x},\bar{y},\bar{z}) = (x,y,z)$. However, in the other patches, a coordinate transformation must be applied to map the local patch coordinates to the global Cartesian coordinates. This transformation is performed in two steps: first, the local coordinates are transformed to temporary global coordinates $(\tilde{x},\tilde{y},\tilde{z})$, which are then transformed to the final global Cartesian coordinates $(x,y,z)$ by performing a rotation of the patch to their correct placement on the sphere. The transformation from local patch coordinates to temporary global coordinates is given by
+The cubed-ball grid consists of a central cube surrounded by six deformed cube patches that form a spherical shell around the central cube forming a transition shell, which is itself surrounded by six more deformed cube patches that form the outer spherical shell. In the central cube, the local patch coordinates and the global Cartesian coordinates are identical, i.e., $(\bar{x},\bar{y},\bar{z}) = (x,y,z)$. However, in the other patches, a coordinate transformation must be applied to map the local patch coordinates to the global Cartesian coordinates. This transformation is performed in two steps: first, the local coordinates are transformed to temporary global coordinates $(\tilde{x},\tilde{y},\tilde{z})$, which are then transformed to the final global Cartesian coordinates $(x,y,z)$ by performing a rotation of the patch to their correct placement on the sphere. The transformation from local patch coordinates to temporary global coordinates $(x_t,y_t,z_t)$ is given by
 %
 \begin{align}
     x_t = \frac{\bar{x}}{\bar{s}} \; , \quad \quad y_t = \frac{\bar{x}}{\bar{s}} \bar{y} \; ,  \quad \quad z_t = \frac{\bar{x}}{\bar{s}} \bar{z} \; ,
@@ -28,7 +28,7 @@ The cubed-ball grid consists of a central cube surrounded by six deformed cube p
 where, for the outer patches,
 %
 \begin{align}
-    \bar{s} = \sqrt{1 + \bar{y}^2 + \bar{z}^2} \; 
+    \bar{s} = \sqrt{1 + \bar{y}^2 + \bar{z}^2} \; ,
 \end{align}
 %
 and for the inner patches,
@@ -52,21 +52,21 @@ Each patch can be further divided into several subpatches, which are smaller cub
 \section{Numerical Method}
 \label{section:Numerical_Method}
 
-\texttt{bamps} uses the method of lines to solve the system of partial differential equations, meaning that it treats time as a continuous variable and space as discrete. To integrate fields forward in time, a fourth-order Runge-Kutta scheme is employed. The spatial discretization is performed using Gauss-Lobatto collocation points, which is done by mapping the local patch coordinates $(\bar{x},\bar{y},\bar{z})$ to the reference cube coordinates $(\tilde{x},\tilde{y},\tilde{z}) \in [-1,1]^3$ and then using the Gauss-Lobatto points in each direction. The Gauss-Lobatto points in the $\tilde{x}$ direction are given by
+\texttt{bamps} uses the \textit{method of lines} to solve the system of partial differential equations, which consists in treating time as a continuous variable and space as discrete. To integrate fields forward in time, a fourth-order Runge-Kutta scheme is employed. The spatial discretization is performed using Gauss-Lobatto collocation points, which is done by mapping the local patch coordinates $(\bar{x},\bar{y},\bar{z})$ to the reference cube coordinates $(\tilde{x},\tilde{y},\tilde{z}) \in [-1,1]^3$ and then using the Gauss-Lobatto points in each direction. The Gauss-Lobatto points in the $\tilde{x}$ direction are given by
 %
 \begin{align}
-    \tilde{x}_\alpha = - \cos\left(\frac{\pi \alpha}{N_x -1}\right) \; ,
+    \tilde{x}_\alpha = - \cos\left(\frac{\pi \alpha}{N_x -1}\right) \; ,
 \end{align}
 %
 with $\alpha = 0,1,\ldots,N_x -1$ and $N_x$ being the number of grid points in the $\tilde{x}$ direction. The collocation points in the other two directions are defined similarly. It is important to note that the number of angular grid points must be the same in all patches to ensure that the grid points on the boundaries of neighboring patches match \cite{Pseudospectral_method_for_gravitational_wave_collapse}. A grid generated using Gauss-Lobatto points can be seen in figure \ref{fig:cubed_ball_grid}.
 
-On each of the collocation points, all the evolution fields $u$ are expanded in each dimension in terms of Chebyshev polynomials $T_n(\tilde{x})$ as
+On each of the collocation points, all the evolution fields $u$ are expanded in each dimension in terms of Chebyshev polynomials $T_n(\tilde{x})$ \cite{Numerical_Relativity_Solving_Einsteins_Equations_on_the_Computer} as
 %
 \begin{align}
  u_{\alpha \beta \delta} = u(\tilde{x}_\alpha, \tilde{y}_\beta, \tilde{z}_\delta) = \sum_{l=0}^{N_z -1} c^x_n(\tilde{y}_\beta, \tilde{z}_\delta) \, T_n(\tilde{x}_\alpha) \; ,
 \end{align}
 %
-and similarly for the $\tilde{y}$ and $\tilde{z}$ directions. This expansion enables a spectral representation of the fields, which is advantageous as it facilitates the analytical differentiation of our expansion through the analytical derivatives of the Chebyshev polynomials. Additionally, since for many applications the contribution of higher order polynomials decays exponentially, the numerical error in spectral methods usually decays exponentially with the resolution \cite{Numerical_Relativity_Solving_Einsteins_Equations_on_the_Computer}. \texttt{bamps} uses the pseudospectral approach, meaning that instead of storing the coefficients $c^x_n(\tilde{y}_\beta, \tilde{z}_\delta)$, it stores the values of the fields at the collocation points. The spatial derivatives of the fields are computed using matrix multiplication. For example, the derivative in the $\tilde{x}$ direction is computed as
+and similarly for the $\tilde{y}$ and $\tilde{z}$ directions. This expansion enables a spectral representation of the fields, which is advantageous as it facilitates the analytical differentiation of our expansion through the analytical derivatives of the Chebyshev polynomials. Additionally, since for many applications the contribution of higher order polynomials decays exponentially, the numerical error in spectral methods usually decays exponentially with the resolution \cite{Numerical_Relativity_Solving_Einsteins_Equations_on_the_Computer}. \texttt{bamps} uses the pseudospectral approach, that is, instead of storing the coefficients $c^x_n(\tilde{y}_\beta, \tilde{z}_\delta)$, it stores the values of the fields at the collocation points. The spatial derivatives of the fields are computed using matrix multiplication. For example, the derivative in the $\tilde{x}$ direction is computed as
 %
 \begin{align}
     (\partial_{\tilde{x}} u)_{\alpha \beta \delta} = \sum_{n=0}^{N_x -1} D_{\alpha n} u_{n \beta \delta} \; ,
@@ -108,7 +108,7 @@ The \texttt{bamps} code also supports both 1-dimensional and 2-dimensional reduc
 
 Since $\texttt{bamps}$ separates our domain into different patches, we need to impose boundary conditions between adjacent patches so that they can communicate data to each other. An effective way to impose these boundary conditions is to add appropriate penalty terms to the equations on these boundaries. This method, which we call \textit{Penalty Method}, imposes the needed boundary conditions while keeping the evolution equations at the boundary almost unchanged \cite{Pseudospectral_method_for_gravitational_wave_collapse,Spectral_methods_for_the_wave_equation_in_second-order_form}.
 
-It consists of adding to the equation of motion of the incoming characteristic variable a term of the form $(u_-^{BC}  - u_-)$, where $u_-$ is the incoming \textit{characteristic variable}. Thus, if the boundary condition $u_-^{BC} = u_-$ is satisfied, the penalty terms vanish. We can then determine the appropriate penalty terms to add to the equation when written in their fundamental form by rewriting our evolution equations on the boundaries as functions of the characteristic variables, incorporating the penalty terms, and then transforming our system back \cite{Pseudospectral_method_for_gravitational_wave_collapse,Spectral_methods_for_the_wave_equation_in_second-order_form}. That way, the evolution equations \eqref{eq:wave_equation_3+1} on the boundary will get modified to
+It consists of adding to the equation of motion of the incoming \textit{characteristic variable} a term of the form $(u_-^{BC}  - u_-)$, where $u_-$ is the incoming \textit{characteristic variable}. Thus, if the boundary condition $u_-^{BC} = u_-$ is satisfied, the penalty terms vanish. We can then determine the appropriate penalty terms to add to the equation when written in their fundamental form by rewriting our evolution equations on the boundaries as functions of the characteristic variables, incorporating the penalty terms, and then transforming our system back \cite{Pseudospectral_method_for_gravitational_wave_collapse,Spectral_methods_for_the_wave_equation_in_second-order_form}. That way, the evolution equations \eqref{eq:wave_equation_3+1} on the boundary will get modified to
 %
 \begin{align}
     \left\{\begin{array}{@{}l@{}} 
@@ -142,7 +142,7 @@ The AMR procedure in \texttt{bamps} consists in:
 \begin{enumerate}
     \item Evaluate the h-refinement indicator on each subpatch;
     \item Generate a set of initial h-refinement flags;
-    \item Modify the h-refinement flags to satisfy the constraints for a 'legal' \texttt{bamps} grid;
+    \item Modify the h-refinement flags to satisfy the constraints for a 'legal' \texttt{bamps} grid; 
     \item Apply the h-refinement operations;
     \item Perform load balancing to consolidate grids that are marked to be coarsened together;
     \item Apply h-coarsening operations;
@@ -154,7 +154,7 @@ The AMR procedure in \texttt{bamps} consists in:
 It is possible to define several indicators to determine where refinement is needed. In this work, we will use the \textit{truncation error indicator}, which estimates the truncation error of our spectral expansion. This indicator is calculated by performing the spectral decomposition of the evolution fields as described in section \ref{section:Numerical_Method} and then constructing the sequence
 %
 \begin{align}
-    \tilde{c}_i = \sqrt{\frac{1}{N} \sum_{k=1}^N c_i^k} \; , \quad \quad i = 1, 2, \ldots, \tilde{n} \;
+    \tilde{c}_i = \sqrt{\frac{1}{N} \sum_{k=1}^N c_i^k} \; , \quad \quad i = 1, 2, \ldots, \tilde{n} \; ;
 \end{align}
 %
 where $\tilde{n}$ is the highest mode which is not affected by the filter described in section \ref{section:Numerical_Method}, and $k$ enumerates all $N$ lines of grid points. Then, an exponential is fitted to the sequence $\tilde{c}_i$ obtaining the indicator function

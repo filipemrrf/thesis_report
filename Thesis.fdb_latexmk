@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex Thesis"] 1776524083.73074 "Thesis.aux" "Thesis.bbl" "Thesis" 1776524083.80849 2
+["bibtex Thesis"] 1776797958.03562 "Thesis.aux" "Thesis.bbl" "Thesis" 1776797958.11394 2
   "./Thesis_Bibliography_DB.bib" 1758618740.7692 14671 48c632d2f12ca8ff31e096f428fce868 ""
   "./abbrvunsrtnat.bst" 1709558758 24267 a4941d7f62480388d05ebc2186bb1e4c ""
-  "Thesis.aux" 1776524083.71444 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
+  "Thesis.aux" 1776797958.03142 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
   (generated)
   "Thesis.bbl"
   "Thesis.blg"
   (rewritten before read)
-["pdflatex"] 1776524082.45377 "/home/filipe/thesis_report/Thesis.tex" "Thesis.pdf" "Thesis" 1776524083.64402 2
+["pdflatex"] 1776797956.74388 "/home/filipe/thesis_report/Thesis.tex" "Thesis.pdf" "Thesis" 1776797957.94749 2
   "/etc/texmf/web2c/texmf.cnf" 1744980055.8589 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/filipe/thesis_report/Thesis.tex" 1758620847.62267 12346 1d6572c483ba6fb0e5f5eef030b8d0cc ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
@@ -210,8 +210,8 @@
   "Numerical_Setup.tex" 1758972030.2909 16561 42310cca9300419e7cf418d73648ceb6 ""
   "Theoretical_Background.tex" 1774714926.15266 32697 17ca77c961c1dc63b5f3e1251676894f ""
   "Thesis.acr" 0 -1 0 ""
-  "Thesis.aux" 1776524083.71444 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
-  "Thesis.bbl" 1776524083.79321 0 d41d8cd98f00b204e9800998ecf8427e "bibtex Thesis"
+  "Thesis.aux" 1776797958.03142 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
+  "Thesis.bbl" 1776797958.11142 0 d41d8cd98f00b204e9800998ecf8427e "bibtex Thesis"
   "Thesis.lof" 0 -1 0 "pdflatex"
   "Thesis.nls" 0 -1 0 ""
   "Thesis.out" 0 -1 0 "pdflatex"
@@ -226,7 +226,7 @@
   "Thesis_Introduction.tex" 1758975015.9312 9892 5b4732d7e538e6ea85e3f6ad499945f4 ""
   "Thesis_Nomenclature.tex" 1758621947.0253 2484 6fe1511c7480e7faf0ebbc0c197407d2 ""
   "Thesis_Preamble.tex" 1775900549.60074 22114 720697435e16dfe5036d7294ccc0b61c ""
-  "Thesis_Results.tex" 1776524082.14896 10154 52a4a875903a9b8e006ec94f8a3cd580 ""
+  "Thesis_Results.tex" 1776797956.42142 10295 5c84a7173258191a3848e2ba63fdf729 ""
   "Thesis_Resumo.tex" 1709558758 967 9b6b766c3790c5c93c93c11185fbd38b ""
   (generated)
   "Thesis.acn"
